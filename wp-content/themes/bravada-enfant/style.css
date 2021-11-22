@@ -1,0 +1,19 @@
+/*
+ Theme Name:   Bravada
+ Theme URI:    https://www.cryoutcreations.eu/wordpress-themes/bravada
+ Description:  Thème enfant de Bravada
+ Author:       Cryout Creations
+ Author URI:   https://www.cryoutcreations.eu/
+ Template:     bravada
+ Version:      1.0.6.1
+*/
+
+.byline {
+    background: red;
+}
+
+
+.wp-image-15, .wp-image-20, .wp-image-21, .wp-image-28{
+    width: 240px !important; 
+    height: 220px !important;
+}

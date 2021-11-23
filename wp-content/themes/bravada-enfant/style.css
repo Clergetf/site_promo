@@ -36,3 +36,29 @@
     color: #707070 !important;
 
 }
+
+/*** github footer **/
+#colophon-inside {
+    display: flex;
+    align-items: center;
+    height: 250px;
+}
+
+#colophon .footer-three .widget-container {
+    width: 25%;
+}
+
+.wp-block-embed__wrapper {
+    width: 700px !important;
+}
+.github-embed.github-logo-mark p {
+    display: none;
+}
+
+#footer {
+    padding: 0;
+}
+
+#block-14 {
+    margin-bottom: 10%;
+}

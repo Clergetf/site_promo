@@ -727,7 +727,7 @@ msgstr ""
 
 #: ../lib/views/taxonomy-order.php:7
 msgid ""
-"Please update your wordpress to 4.4.0 or\n"
+"Please update your wordpress to 4.4.0 or\n"
 "				latest version to use taxonomy order functionality."
 msgstr ""
 

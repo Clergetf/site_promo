@@ -4,7 +4,7 @@ Donate link:
 Tags: testimonials slider, testimonial, testimonials,testimonial slider, testimonial showcase, responsive testimonial, testimonial plugin
 Requires at least: 4.5
 Tested up to: 5.8
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -185,6 +185,9 @@ The following are the fields that this plugin allows you to have on your testimo
 06. Styles 
 
 == Changelog ==
+
+= 2.1.2 (Novembar 23, 2021) =
+* Responsive Issue fix
 
 = 2.1.1 = 
 * Added: Layout Preview in Shortcode

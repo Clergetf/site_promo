@@ -87,11 +87,12 @@ if (!class_exists('TSSPortSCMeta')):
 							<div class="rt-box-content">
                     			<h3 class="rt-box-title">%1$s</h3>
                     				<p>%2$s</p>
-                        			<a href="https://www.radiustheme.com/setup-wp-testimonials-slider-showcase-wordpress/" target="_blank" class="rt-admin-btn">%1$s</a>
+                        			<a href="%3$s" target="_blank" class="rt-admin-btn">%1$s</a>
                 			</div>
 						</div>',
                 esc_html__("Documentation", 'testimonial-slider-showcase'),
-                esc_html__("Get started by spending some time with the documentation we included step by step process with screenshots with video.", 'testimonial-slider-showcase')
+                esc_html__("Get started by spending some time with the documentation we included step by step process with screenshots with video.", 'testimonial-slider-showcase'),
+                esc_url( TSSPro()->documentation_link() )
             );
 
             $html .= '<div class="rt-document-box">
@@ -115,11 +116,10 @@ if (!class_exists('TSSPortSCMeta')):
                             <li>Layout Preview in Shortcode Settings.</li>
                             <li>Taxonomy Ordering</li>
                         </ol>
-                        <a href="https://www.radiustheme.com/downloads/wp-testimonial-slider-showcase-pro-wordpress/" class="rt-admin-btn" target="_blank">Get Pro Version</a>
+                        <a href="' . esc_url( TSSPro()->pro_version_link() ) . '" class="rt-admin-btn" target="_blank">Get Pro Version</a>
                     </div>
                 </div>'; 
             }
-
             $html .= '<div class="rt-document-box">
 							<div class="rt-box-icon"><i class="dashicons dashicons-smiley"></i></div>
 							<div class="rt-box-content">

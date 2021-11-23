@@ -1997,6 +1997,31 @@ body > .tss-tooltip .tss-tooltip-bottom:after {
     .tss-wrapper .tss-carousel10 .item-content {
         padding: 15px;
     }
+
+    .tss-wrapper .tss-layout1 .item-content-wrapper:after, 
+    .tss-wrapper .tss-carousel1 .item-content-wrapper:after {
+        left: 0;
+        top: -15px;
+        right: 0;
+        margin: auto;
+        transform: rotate(90deg);
+    }
+
+    .tss-wrapper .tss-layout1 .single-item-wrapper:hover .item-content-wrapper:after, 
+    .tss-wrapper .tss-carousel1 .single-item-wrapper:hover .item-content-wrapper:after{
+        top: -15px
+    }
+
+    .tss-wrapper .tss-layout2 .item-content-wrapper:after, 
+    .tss-wrapper .tss-carousel2 .item-content-wrapper:after {
+        right: 0;
+        top: -15px;
+        transform: rotate(-90deg);
+        margin: auto;
+        left: 0;
+    }
+
+
 }
 
 /***********************

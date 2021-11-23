@@ -33,7 +33,7 @@
                         <h3><?php esc_html_e( "Online documentation", "testimonial-slider-showcase" ); ?></h3>
                         <p style="padding: 0">
                         <?php _e( "From our online documentation, you will know how to use our pluign. <br> If you face any issue please create a ticket. We will provide you solution as soon as possible.", "testimonial-slider-showcase" ); ?> <br><br>
-                        <a style="margin-right: 5px;" class="rt-admin-btn" target="_blank" href="https://www.radiustheme.com/setup-wp-testimonials-slider-showcase-wordpress/" target="_blank"><?php esc_html_e( "Online Documentation", "testimonial-slider-showcase" ); ?></a> 
+                        <a style="margin-right: 5px;" class="rt-admin-btn" target="_blank" href="<?php echo esc_url( TSSPro()->documentation_link() );?>" target="_blank"><?php esc_html_e( "Online Documentation", "testimonial-slider-showcase" ); ?></a> 
                         <a class="rt-admin-btn" target="_blank" href="https://www.radiustheme.com/contact/" target="_blank"><?php esc_html_e( "Get Support", "testimonial-slider-showcase" ); ?></a>
                         </p> 
                     </div>

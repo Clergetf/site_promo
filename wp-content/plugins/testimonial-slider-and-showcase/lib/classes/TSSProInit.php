@@ -362,11 +362,10 @@ if (!class_exists('TSSProInit')):
         }
 
         public function rt_plugin_active_link_marketing( $links ) {
-			$links[] = '<a target="_blank" href="' . esc_url( 'http://demo.radiustheme.com/wordpress/plugins/testimonials-slider/' ) . '">Demo</a>';
-			$links[] = '<a target="_blank" href="' . esc_url( 'https://www.radiustheme.com/setup-wp-testimonials-slider-showcase-wordpress/' ) . '">Documentation</a>'; 
-
+			$links[] = '<a target="_blank" href="' . esc_url( TSSPro()->demo_home_page_link() ) . '">Demo</a>';
+			$links[] = '<a target="_blank" href="' . esc_url( TSSPro()->documentation_link() ) . '">Documentation</a>'; 
             if ( !function_exists('rttsp') ) {
-				$links[] = '<a target="_blank" style="color: #39b54a;font-weight: 700;" href="'. esc_url( 'https://www.radiustheme.com/downloads/wp-testimonial-slider-showcase-pro-wordpress/' ) .'">Get Pro</a>';
+				$links[] = '<a target="_blank" style="color: #39b54a;font-weight: 700;" href="'. esc_url( TSSPro()->pro_version_link() ) .'">Get Pro</a>';
 			} 
 
 			return $links;

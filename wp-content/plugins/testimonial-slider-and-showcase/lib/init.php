@@ -76,6 +76,22 @@ if ( ! class_exists( 'TSSPro' ) ) {
 			}
 		}
 
+		public function pro_version_link() {
+			$proUrl = esc_url('https://www.radiustheme.com/downloads/wp-testimonial-slider-showcase-pro-wordpress/');
+			return $proUrl ; 
+		}
+
+		public function demo_home_page_link() {
+			$proUrl = esc_url('https://www.radiustheme.com/demo/plugins/testimonial-slider/');
+			return $proUrl ; 
+		}
+
+
+		public function documentation_link() {
+			$proUrl = esc_url('https://www.radiustheme.com/setup-wp-testimonials-slider-showcase-wordpress/');
+			return $proUrl ; 
+		}
+
 		function loadClass( $dir ) {
 			if ( ! file_exists( $dir ) ) {
 				return;

@@ -8,18 +8,31 @@
  Version:      1.0.6.1
 */
 
-.byline {
-    background: red;
-}
-
 
 .wp-image-15, .wp-image-20, .wp-image-21, .wp-image-28{
     width: 240px !important; 
     height: 220px !important;
 }
 
-.presentation-formation {
+.presentation-formation, .presentation-matin {
     width: 70%;
     text-align: center;
     margin: auto;
+}
+
+
+/** Téléchargement page présentations **/
+.wpdm-download-link.btn.btn-primary {
+    border-radius: 100px !important;
+}
+
+.media-body .package-title a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #707070;
+}
+
+.media-body .text-muted{
+    color: #707070 !important;
+
 }

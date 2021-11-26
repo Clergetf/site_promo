@@ -9,6 +9,7 @@
 namespace WPDM\Admin\Menu;
 
 
+use WPDM\__\__;
 use WPDM\__\Crypt;
 use WPDM\__\FileSystem;
 
@@ -34,6 +35,7 @@ class Stats
 
     public function ajax_callback_get_packages()
     {
+		__::isAuthentic('__spnonce', WPDM_PUB_NONCE, WPDM_MENU_ACCESS_CAP);
         global $wpdb;
         $posts_table = "{$wpdb->base_prefix}posts";
         $packages = [];
@@ -54,6 +56,7 @@ class Stats
 
     public function ajax_callback_get_users()
     {
+	    __::isAuthentic('__spnonce', WPDM_PUB_NONCE, WPDM_MENU_ACCESS_CAP);
         global $wpdb;
         $users_table = "{$wpdb->prefix}users";
         $term = wpdm_query_var('term');

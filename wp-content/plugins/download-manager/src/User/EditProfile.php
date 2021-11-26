@@ -71,7 +71,7 @@ class EditProfile
 
                 wp_update_user($pfile_data);
 
-                update_user_meta($current_user->ID, 'payment_account', $_POST['payment_account']);
+                update_user_meta($current_user->ID, 'payment_account', wpdm_query_var('payment_account'));
                 Session::set('member_success', 'Profile data updated successfully.');
             }
 

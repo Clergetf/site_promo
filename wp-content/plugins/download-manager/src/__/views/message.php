@@ -19,12 +19,7 @@ if (!defined('ABSPATH')) die();
     <link rel="stylesheet" href="<?php echo WPDM_BASE_URL; ?>assets/css/front.css" />
     <link rel="stylesheet" href="<?php echo WPDM_BASE_URL; ?>assets/font-awesome/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Overpass:400,700" rel="stylesheet">
-    <!--
-    <script src="<?php echo includes_url(); ?>/js/jquery/jquery.js"></script>
-    <script src="<?php echo includes_url(); ?>/js/jquery/jquery.form.min.js"></script>
-    <script src="<?php echo WPDM_BASE_URL; ?>assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?php echo WPDM_BASE_URL; ?>assets/js/front.js"></script>
-    -->
+
     <?php
     \WPDM\__\Apply::uiColors();
     ?>

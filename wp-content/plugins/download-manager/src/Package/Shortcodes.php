@@ -271,9 +271,9 @@ class Shortcodes
         $burl = get_permalink();
         $sap = get_option('permalink_structure') ? '?' : '&';
         $burl = $burl . $sap;
-        if (isset($_GET['p']) && $_GET['p'] != '') $burl .= 'p=' . esc_attr($_GET['p']) . '&';
-        if (isset($_GET['src']) && $_GET['src'] != '') $burl .= 'src=' . esc_attr($_GET['src']) . '&';
-        $orderby = isset($_GET['orderby']) ? esc_attr($_GET['orderby']) : 'date';
+        if (isset($_GET['p']) && $_GET['p'] != '') $burl .= 'p=' . wpdm_query_var('p', 'txt') . '&';
+        if (isset($_GET['src']) && $_GET['src'] != '') $burl .= 'src=' . wpdm_query_var('src', 'txt') . '&';
+        $orderby = isset($_GET['orderby']) ? wpdm_query_var('orderby', 'txt') : 'date';
         $order = ucfirst($order);
 
         $order_field = " " . __(ucwords(str_replace("_", " ", $order_field)), "wpdmpro");
@@ -396,7 +396,7 @@ class Shortcodes
         }
         $terms = isset($params['categories']) ? explode(",", $params['categories']) : array();
         $tag = isset($params['tag']) ? $params['tag'] : '';
-        if (isset($_GET['wpdmc'])) $terms = array(esc_attr($_GET['wpdmc']));
+        if (isset($_GET['wpdmc'])) $terms = array(wpdm_query_var('wpdmc', 'txt'));
         $total_files = wp_count_posts('wpdmpro')->publish;
         if (count($terms) > 0) {
             $tax_query = array(array(

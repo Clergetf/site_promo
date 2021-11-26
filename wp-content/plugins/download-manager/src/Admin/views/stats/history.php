@@ -306,8 +306,8 @@ $pagination = array(
 
 <!-- SCRIPTS -->
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<link href="<?= WPDM_BASE_URL ?>assets/select2/css/select2.min.css" rel="stylesheet" />
+<script src="<?= WPDM_BASE_URL ?>assets/select2/js/select2.min.js"></script>
 <script>
     jQuery(function($) {
 
@@ -328,6 +328,7 @@ $pagination = array(
                 data: function(params) {
                     return {
                         action: 'wpdm_stats_get_packages',
+                        __spnonce: '<?= wp_create_nonce(WPDM_PUB_NONCE); ?>',
                         term: params.term, // search term
                     };
                 },
@@ -347,6 +348,7 @@ $pagination = array(
                 data: function(params) {
                     return {
                         action: 'wpdm_stats_get_users',
+                        __spnonce: '<?= wp_create_nonce(WPDM_PUB_NONCE); ?>',
                         term: params.term, // search term
                     };
                 },

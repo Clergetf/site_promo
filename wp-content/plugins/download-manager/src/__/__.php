@@ -431,6 +431,13 @@ class __
         return $number;
     }
 
+	/**
+     * WPDM Admin action authentication function
+	 * @param $nonce_var
+	 * @param $nonce_key
+	 * @param $access_level
+	 * @param bool $is_ajax
+	 */
     static function isAuthentic($nonce_var, $nonce_key, $access_level, $is_ajax = true){
         $nonce_var = __::sanitize_var($nonce_var, 'txt');
         if($is_ajax) {

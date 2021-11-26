@@ -31,15 +31,17 @@ class Updater
     function checkUpdate()
     {
 
-        if (!current_user_can(WPDM_ADMIN_CAP) || get_option('wpdm_update_notice') === 'disabled') die();
+        if (get_option('wpdm_update_notice') === 'disabled') die();
+
+        __::isAuthentic('__upcnonce', WPDM_PRI_NONCE, WPDM_ADMIN_CAP);
 
         include_once(ABSPATH . 'wp-admin/includes/plugin.php');
 
         $latest = $this->getLatestVersions();
         $plugins = get_plugins();
 
-        $page = isset($_REQUEST['page']) ? esc_attr($_REQUEST['page']) : '';
-        $plugin_info_url = isset($_REQUEST['plugin_url']) ? $_REQUEST['plugin_url'] : 'https://www.wpdownloadmanager.com/purchases/';
+        $page = wpdm_query_var('page');
+        $plugin_info_url = wpdm_query_var('plugin_url', 'url', 'https://www.wpdownloadmanager.com/purchases/');
         if (is_array($latest)) {
             foreach ($latest as $plugin_dir => $latestv) {
                 if ($plugin_dir !== 'download-manager') {
@@ -106,6 +108,7 @@ NOTICE;
                 console.log('Checking WPDM Version!');
                 jQuery.post(ajaxurl, {
                     action: 'wpdm_check_update',
+                    __upcnonce: '<?= wp_create_nonce(WPDM_PRI_NONCE) ?>',
                     page: '<?php echo $page; ?>'
                 }, function (res) {
                     jQuery('#wpfooter').after(res);

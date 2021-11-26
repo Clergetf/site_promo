@@ -1,8 +1,6 @@
 <script type="text/javascript" src="<?php echo includes_url();?>/js/jquery/jquery.form.min.js"></script>
-<link rel="stylesheet" href="<?php echo plugins_url('/download-manager/assets/css/chosen.css'); ?>" />
-<script language="JavaScript" src="<?php echo plugins_url('/download-manager/assets/js/chosen.jquery.min.js'); ?>"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo plugins_url('/download-manager/assets/bootstrap3/css/bootstrap.css');?>" />
-<script  src="<?php echo plugins_url('/download-manager/assets/bootstrap/js/bootstrap.bundle.min.js');?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo WPDM_BASE_URL ?>assets/bootstrap3/css/bootstrap.css" />
+<script  src="<?php echo WPDM_BASE_URL; ?>assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Overpass:300,400,700' rel='stylesheet' type='text/css'>
 <link href="<?php echo WPDM_BASE_URL . 'assets/fontawesome/css/all.css'; ?>" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo plugins_url('/download-manager/assets/css/front3.css'); ?>" />

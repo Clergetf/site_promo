@@ -117,7 +117,7 @@ if (!defined("ABSPATH")) die("Shit happens!");
                 $(this).fadeOut();
             });
 
-            $('select:not(.system-ui)').chosen({disable_search_threshold: 4});
+            $('select:not(.system-ui)').select2({disable_search_threshold: 4});
             $("ul#tabs li").click(function () {
 
             });
@@ -133,7 +133,7 @@ if (!defined("ABSPATH")) die("Shit happens!");
                     $('#fm_settings').html(res);
                     $('#section').val(section)
                     $('#wdms_loading').removeClass('wpdm-spin');
-                    $('select:not(.system-ui)').chosen({disable_search_threshold: 4});
+                    $('select:not(.system-ui)').select2({disable_search_threshold: 4});
                     window.history.pushState({
                         "html": res,
                         "pageTitle": "response.pageTitle"

@@ -8,10 +8,53 @@
  Version:      1.0.6.1
 */
 
+/** Acceuil **/
 
-.wp-image-15, .wp-image-20, .wp-image-21, .wp-image-28{
-    width: 240px !important; 
-    height: 220px !important;
+.lp-text-card .wp-block-column{
+    background-color: #f0eeee;
+    box-shadow: 0px 0px 0px 0px #707070;
+    transition: .4s ease-in-out;
+
+
+}
+
+.lp-text-card .wp-block-column:hover{
+    transition: .4s ease-in-out;
+    box-shadow: 10px 10px 10px 2px #707070;
+}
+.wp-image-15, .wp-image-20, .wp-image-21, .wp-image-28, .wp-image-174, .wp-image-175, .wp-image-176, .wp-image-177, .wp-image-179, .wp-image-193{
+    width: 200px !important; 
+    height: 200px !important;
+}
+
+.bravada-landing-page .lp-text-inside {
+    margin: 0 auto;
+}
+
+.text-card-apprenant {
+    margin-top: -20px
+}
+
+.lp-text .lp-text-content a:not([class]) {
+    text-decoration: none;
+    color: inherit;
+    background-color: #fbf7f7;
+    border: 1px solid #dd3333;
+    border-radius: 20px;
+    padding: 5px;
+    margin-top: -30px
+
+}
+
+.lp-text .lp-text-content a:hover {
+    text-decoration: none;
+    color: inherit;
+    background-color: #fbf7f7;
+    border: 1px solid #707070;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 1px 1px 1px 1px #dd3333 inset;
+
 }
 
 .presentation-formation, .presentation-matin {
@@ -20,10 +63,39 @@
     margin: auto;
 }
 
+/** technologies **/
+
+.testimonial6 .pic {
+    border: none !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.testimonial6 .description {
+    box-shadow: 0 0 0 0 !important;
+
+}
+.testimonial6 .post {
+    color: #707070;
+    font-style: italic;
+}
+
+.wptb-image-element-target {
+    transition: 1.5s ease-in-out;
+}
+
+.wptb-image-element-target:hover {
+    transform: rotate(360deg);
+    transition: 1.5s ease-in-out;
+}
 
 /** Téléchargement page présentations **/
 .wpdm-download-link.btn.btn-primary {
     border-radius: 100px !important;
+}
+
+.wpdm-download-link.btn.btn-primary:hover {
+    background-color: white;
+    color: #dd3333 !important;
 }
 
 .media-body .package-title a {
@@ -37,28 +109,37 @@
 
 }
 
-/*** github footer **/
+ /*github footer */
 #colophon-inside {
     display: flex;
     align-items: center;
     height: 250px;
 }
 
-#colophon .footer-three .widget-container {
-    width: 25%;
-}
-
-.wp-block-embed__wrapper {
-    width: 700px !important;
-}
-.github-embed.github-logo-mark p {
-    display: none;
+#block-14 {
+    margin-bottom: 10%;
 }
 
 #footer {
     padding: 0;
 }
 
-#block-14 {
-    margin-bottom: 10%;
+.WP_Github_Commits_Widget .widgettitle {
+    font-size: 1em;
 }
+/**#colophon .footer-three .widget-container {
+    width: 25%;
+}
+
+.wp-block-embed__wrapper {
+    width: 700px !important;
+}
+
+.github-embed.github-logo-mark p {
+    display: none;
+}
+
+
+
+
+}**/

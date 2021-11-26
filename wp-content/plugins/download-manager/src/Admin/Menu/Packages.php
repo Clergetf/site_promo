@@ -147,7 +147,7 @@ class Packages
         check_ajax_referer(NONCE_KEY);
         if(!current_user_can('upload_files')) die('-2');
 
-        $name = isset($_FILES['package_file']['name']) && !isset($_REQUEST["chunks"])?$_FILES['package_file']['name']:$_REQUEST['name'];
+        $name = isset($_FILES['package_file']['name']) && !isset($_REQUEST["chunks"])?$_FILES['package_file']['name']:wpdm_query_var('name', 'escs');
 
         $ext = FileSystem::fileExt($name);
 
@@ -158,7 +158,7 @@ class Packages
         @set_time_limit(0);
 
         if(!file_exists(UPLOAD_DIR)){
-            WordPressDownloadManager::createDir();
+            WPDM()->createDir();
         }
 
         if(file_exists(UPLOAD_DIR.$name) && get_option('__wpdm_overwrrite_file',0)==1){

@@ -217,7 +217,7 @@
 
 
 
-        jQuery("#wpdm-settings select").chosen({no_results_text: ""});
+        jQuery("#wpdm-settings select").select2({no_results_text: ""});
 
         jQuery('.handlediv').click(function(){
             jQuery(this).parent().find('.inside').slideToggle();

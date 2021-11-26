@@ -141,6 +141,9 @@ if(wpdm_query_var('_type') === 'custom-tags'){
         padding: 0;
         margin-bottom: -4px;
     }
+    .btn-group .btn-status input{
+        display: none;
+    }
 
 </style>
 <script>
@@ -186,15 +189,6 @@ if(wpdm_query_var('_type') === 'custom-tags'){
         });
 
 
-        $('.delete-template').on('click', function (e) {
-            if(!confirm('<?php _e( "Are you sure?" , "download-manager" ); ?>')) return false;
-            e.preventDefault();
-            var rowid = '#template-'+$(this).data('ttype')+"-"+$(this).data('tplid');
-            $(this).html('<i class="fa fa-times fa-spin"></i> Delete');
-            $.get(ajaxurl, {action: 'wpdm_delete_template', ttype: $(this).data('ttype'), tplid: $(this).data('tplid')}, function (res) {
-                $(rowid).remove();
-            });
-        });
         <?php } ?>
         $('#newtagform').submit(function (e) {
             e.preventDefault();

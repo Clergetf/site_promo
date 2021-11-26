@@ -28,7 +28,7 @@ $info = \WPDM\__\Email::info(wpdm_query_var('id'));
 
 <form action="" method="post" id="email-editor-form">
 
-
+<?php wp_nonce_field(WPDM_PRI_NONCE, '__setnonce'); ?>
                 <input type="hidden" name="id" value="<?php echo wpdm_query_var('id'); ?>" />
                 <input type="text" name="email_template[subject]" required="required" title="<?php echo __( "Email Subject" , "download-manager" ); ?>" placeholder="<?php echo __( "Email Subject" , "download-manager" ); ?>" x-moz-errormessage="<?php echo __( "Email Subject" , "download-manager" ); ?>" value="<?php echo $tpl['subject']; ?>" class="form-control input-lg">
                 <ul class="nav nav-tabs" style="margin-top: 10px; ">

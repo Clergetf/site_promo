@@ -3,6 +3,7 @@
 namespace WPDM\Admin\Menu;
 
 
+use WPDM\__\__;
 use WPDM\__\Crypt;
 use WPDM\__\Template;
 
@@ -15,22 +16,16 @@ class Templates
         add_filter('wdm_before_fetch_template', array($this, 'introduceCustomTags'), 99, 3 );
         //add_action('admin_init', array($this, 'Save'));
         add_action('wp_ajax_template_preview', array($this, 'preview'));
-        add_action('wp_ajax_wpdm_delete_template', array($this, 'deleteTemplate'));
-        add_action('wp_ajax_wpdm_save_template', array($this, 'save'));
         add_action('wp_ajax_wpdm_save_email_template', array($this, 'saveEmailTemplate'));
         add_action('wp_ajax_update_template_status', array($this, 'updateTemplateStatus'));
         add_action('wp_ajax_wpdm_save_email_setting', array($this, 'saveEmailSetting'));
-        add_action('wp_ajax_wpdm_save_custom_tag', array($this, 'saveCustomTag'));
-        add_action('wp_ajax_wpdm_edit_custom_tag', array($this, 'editCustomTag'));
-        add_action('wp_ajax_wpdm_delete_custom_tag', array($this, 'deleteCustomTag'));
         add_action('wp_ajax_connect_template_server', array($this, 'templateServer'));
-        add_action('wp_ajax_wpdm_import_template', array($this, 'importTemplate'));
         add_action('admin_menu', array($this, 'menu'));
     }
 
     function livePreview(){
-
-        if(wp_verify_nonce(wpdm_query_var('_tplnonce'), NONCE_KEY) && current_user_can(WPDM_ADMIN_CAP) && wpdm_query_var('template_preview') !== '') {
+        if(wpdm_query_var('template_preview') !== '') {
+	        __::isAuthentic('_tplnonce', NONCE_KEY, WPDM_ADMIN_CAP);
             add_filter( 'show_admin_bar', '__return_false' );
             $page_template = Template::locate('template-preview.php', WPDM_SRC_DIR.'__/views');
             $type = wpdm_query_var('_type');
@@ -41,7 +36,7 @@ class Templates
                 $package = get_posts(array('post_type' => 'wpdmpro', 'posts_per_page' => 1, 'post_status' => 'publish'));
                 $package = (array)$package[0];
             }
-            $template = Crypt::decrypt($_REQUEST['template_preview']);
+            $template = Crypt::decrypt(wpdm_query_var('template_preview'));
             $template = stripslashes_deep(str_replace(array("\r", "\n"), "", html_entity_decode(urldecode($template))));
             $output = wpdm_fetch_template($template, $package, $type);
             $template = "<div class='w3eden' style='max-width: 900px;margin: 20px auto !important;padding: 40px;'>{$output}</div><script> jQuery(function($) {  var body = document.body, html = document.documentElement; var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ); window.parent.wpdmifh(height); });</script>";
@@ -82,62 +77,9 @@ class Templates
         include wpdm_admin_tpl_path('templates/templates.php');
     }
 
-    /**
-     * @usage Delete link/page template
-     * @since 4.7.0
-     */
-
-    function deleteTemplate(){
-        if (current_user_can(WPDM_ADMIN_CAP)) {
-            $ttype = wpdm_query_var('ttype');
-            $tplid = wpdm_query_var('tplid');
-            /*$tpldata = maybe_unserialize(get_option("_fm_{$ttype}_templates"));
-            if (!is_array($tpldata)) $tpldata = array();
-            unset($tpldata[$tplid]);
-            update_option("_fm_{$ttype}_templates", $tpldata);*/
-            WPDM()->packageTemplate->delete($tplid, $ttype);
-            die('ok');
-        }
-
-    }
-
-
-    /**
-     * @usage Save Link/Page Templates
-     */
-    function save()
-    {
-        //if (!isset($_GET['page']) || $_GET['page'] != 'templates') return;
-
-        $ttype = isset($_REQUEST['_type']) ? wpdm_query_var('_type') : 'link';
-
-        if (isset($_REQUEST['task']) && $_REQUEST['task'] == 'DeleteTemplate') {
-            WPDM()->packageTemplate->delete(wpdm_query_var('tplid'), $ttype);
-            wp_send_json(array('success' => true));
-        }
-
-        if (isset($_POST['tpl'])) {
-
-            $tplid = wpdm_query_var('tplid');
-            if(!$tplid)
-                wp_send_json(array('success' => false));
-            if(wpdm_query_var('tplid_old') !== '' && isset($tpldata[wpdm_query_var('tplid_old')])){
-                unset($tpldata[wpdm_query_var('tplid_old')]);
-            }
-
-            WPDM()->packageTemplate->delete(wpdm_query_var('tplid_old'), wpdm_query_var('_type'))
-                ->add(wpdm_query_var('tplid'), wpdm_query_var('tpl/name'), wpdm_query_var('tpl/content', 'escs'), wpdm_query_var('tpl/css', 'escs'));
-
-            wp_send_json(array('success' => true, 'message' => __( "Template is saved successfully!", "download-manager" )));
-
-            die();
-        }
-
-
-    }
-
     function saveEmailTemplate(){
         if (isset($_POST['email_template'])) {
+            __::isAuthentic('__setnonce', WPDM_PRI_NONCE, WPDM_ADMIN_CAP);
             $email_template = wpdm_query_var('email_template', array('validate' => array('subject' => '', 'message' => 'escs', 'from_name' => '', 'from_email' => '')));
             update_option("__wpdm_etpl_".wpdm_query_var('id'), $email_template, false);
             wp_send_json(array('success' => true, 'message' => 'Email Template Saved!'));
@@ -154,9 +96,7 @@ class Templates
         error_reporting(0);
 
         $wposts = array();
-
-        if(!current_user_can(WPDM_ADMIN_CAP)) die(__( "Unauthorized Access!", "download-manager" ));
-
+        __::isAuthentic('_tplnonce', WPDM_PUB_NONCE, WPDM_ADMIN_CAP);
         $template = isset($_REQUEST['template'])?wpdm_query_var('template', 'escs'):'';
         $type = wpdm_query_var("_type");
         $css = wpdm_query_var("css","txt");
@@ -266,46 +206,12 @@ class Templates
     }
 
     function saveEmailSetting(){
-        if(wp_verify_nonce(wpdm_query_var('__sesnonce'), WPDM_PRI_NONCE) && current_user_can(WPDM_ADMIN_CAP)) {
-            check_ajax_referer(WPDM_PRI_NONCE, '__sesnonce');
-            update_option('__wpdm_email_template', wpdm_query_var('__wpdm_email_template'), false);
-            $email_settings = wpdm_query_var('__wpdm_email_setting', array('validate' => array('logo' => 'url', 'banner' => 'url', 'youtube' => 'url', 'twitter' => 'url', 'facebook' => 'url', 'footer_text' => 'txts')));
-            update_option('__wpdm_email_setting', $email_settings, false);
-            die("Done!");
-        }
-    }
+        __::isAuthentic('__sesnonce', WPDM_PRI_NONCE, WPDM_ADMIN_CAP, true);
 
-    function saveCustomTag(){
-        if(wp_verify_nonce(wpdm_query_var('__ctxnonce'), NONCE_KEY) && current_user_can(WPDM_ADMIN_CAP)){
-            $upload_dir = wp_upload_dir();
-            $upload_dir = $upload_dir['basedir'];
-            $tags_dir = $upload_dir.'/wpdm-custom-tags/';
-            if(!file_exists($tags_dir)) mkdir($tags_dir, 0755, true);
-            file_put_contents($tags_dir.wpdm_query_var('ctag/name', 'filename').'.tag', stripslashes($_REQUEST['ctag']['value']));
-            wp_send_json(array('success' => true, 'name' => wpdm_query_var('ctag/name', 'filename'), 'value' => htmlspecialchars(stripslashes($_REQUEST['ctag']['value']))));
-        }
-    }
-
-    function editCustomTag(){
-        if(current_user_can(WPDM_ADMIN_CAP)){
-            $upload_dir = wp_upload_dir();
-            $upload_dir = $upload_dir['basedir'];
-            $tags_dir = $upload_dir.'/wpdm-custom-tags/';
-            if(!file_exists($tags_dir)) mkdir($tags_dir, 0755, true);
-            $tag_value = file_get_contents($tags_dir.wpdm_query_var('tag', 'filename').'.tag');
-            wp_send_json(array('success' => true, 'name' => wpdm_query_var('tag', 'filename'), 'value' => stripslashes($tag_value)));
-        }
-    }
-
-    function deleteCustomTag(){
-        if(current_user_can(WPDM_ADMIN_CAP)){
-            $upload_dir = wp_upload_dir();
-            $upload_dir = $upload_dir['basedir'];
-            $tags_dir = $upload_dir.'/wpdm-custom-tags/';
-            if(!file_exists($tags_dir)) mkdir($tags_dir, 0755, true);
-            @unlink($tags_dir.wpdm_query_var('tag', 'filename').'.tag');
-            wp_send_json(array('success' => true));
-        }
+	    update_option('__wpdm_email_template', wpdm_query_var('__wpdm_email_template'), false);
+	    $email_settings = wpdm_query_var('__wpdm_email_setting', array('validate' => array('logo' => 'url', 'banner' => 'url', 'youtube' => 'url', 'twitter' => 'url', 'facebook' => 'url', 'footer_text' => 'txts')));
+	    update_option('__wpdm_email_setting', $email_settings, false);
+	    die("Done!");
     }
 
     function updateTemplateStatus(){
@@ -335,42 +241,8 @@ class Templates
     }
 
     function templateServer(){
-        $access = \WPDM\__\Settings::license_det();
-        $access = json_decode($access);
-
-        if(is_object($access) && $access->expire > time()){
-        $templates = wpdm_remote_get("https://www.wpdownloadmanager.com/wpdm-templates/import.json");
-        $templates = (array)json_decode($templates);
-        ?>
-        <div class="row">
-            <?php foreach ($templates as $template => $info) { ?>
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body text-center">
-                            <img src="<?php echo $info->preview; ?>" alt="Preview" />
-                        </div>
-                        <div class="panel-footer import-footer" style="position: relative">
-                            <button data-template="<?php echo $template; ?>" data-type="<?php echo $info->type; ?>" class="btn btn-sm btn-import-template btn-secondary">Import</button>
-                            <div style="width: calc(100% - 100px)" class="ellipsis">
-                                <?php echo $info->name; ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
-        </div>
-        <?php
-        } else {
-            wpdmpro_required();
-        }
+	    wpdmpro_required();
         die();
     }
 
-    function importTemplate(){
-        if(!wpdm_query_var('template'))
-            wp_send_json(['success' => false]);
-        $template = "https://www.wpdownloadmanager.com/wpdm-templates/".wpdm_query_var('template').".xml";
-        WPDM()->packageTemplate->import($template, wpdm_query_var('template_type'));
-        wp_send_json(['success' => true]);
-    }
 }

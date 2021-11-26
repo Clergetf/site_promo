@@ -1,8 +1,8 @@
 <?php
 
     $etpl = get_option('_wpdm_etpl');  
-    if(isset($_GET['loadetpl'])&&file_exists(WPDM_BASE_DIR.'email-templates/'.esc_attr($_GET['loadetpl']))){
-        $etpl['body'] = file_get_contents(WPDM_BASE_DIR.'email-templates/'.esc_attr($_GET['loadetpl']));
+    if(isset($_GET['loadetpl']) && file_exists(WPDM_BASE_DIR.'email-templates/'.wpdm_query_var('filename', 'txt')) && substr_count(wpdm_query_var('filename', 'txt'), '.html')){
+        $etpl['body'] = file_get_contents(WPDM_BASE_DIR.'email-templates/'.wpdm_query_var('filename', 'txt'));
     }
 
 ?>

@@ -142,7 +142,7 @@
                     $('.btn-update').on('click', function (res) {
                         var bhtml = $(this).html(), btn = $(this);
                         btn.html('<i class="fa fa-sync fa-spin"></i> <?php _e( "Please Wait..." , "download-manager" ); ?>');
-                        $.post('admin-ajax.php?action='+$(this).data('action'), {updateurl: $(this).data('url'),  plugin: $(this).data('plugin')}, function (res) {
+                        $.post('admin-ajax.php?action='+$(this).data('action'), {updateurl: $(this).data('url'),  plugin: $(this).data('plugin'), __upanonce: '<?= wp_create_nonce(WPDM_PRI_NONCE) ?>'}, function (res) {
                             btn.html('<i class="fa fa-check-circle"></i> <?php _e( "Success!" , "download-manager" ); ?>');
                         });
                         return false;

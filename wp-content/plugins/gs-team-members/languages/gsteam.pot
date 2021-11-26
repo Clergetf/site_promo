@@ -1,0 +1,1627 @@
+# Copyright (C) 2021 GS_Team
+# This file is distributed under the same license as the GS_Team package.
+msgid ""
+msgstr ""
+"Project-Id-Version: GS_Team\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../gs-team.php:23
+msgid "Sorry cowboy! This is not your place"
+msgstr ""
+
+#: ../gs-team.php:134
+msgid "Recommended image size 400px X 400px for perfect view on various devices."
+msgstr ""
+
+#: ../includes/gs-team-column.php:16, ../includes/shortcode-builder/gs-team-shortcode-builder.php:675
+msgid "Member Name"
+msgstr ""
+
+#: ../includes/gs-team-column.php:17
+msgid "Member Image"
+msgstr ""
+
+#: ../includes/gs-team-column.php:18, ../includes/gs-team-meta-fields.php:82
+msgid "Designation"
+msgstr ""
+
+#: ../includes/gs-team-column.php:19, ../includes/gs-team-cpt.php:69
+msgid "Team Group"
+msgstr ""
+
+#: ../includes/gs-team-column.php:20, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1014
+msgid "Date"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:20
+msgctxt "gsteam"
+msgid "Teams"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:21
+msgctxt "gsteam"
+msgid "Team"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:22
+msgctxt "admin menu"
+msgid "GS Team"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:23
+msgctxt "add new on admin bar"
+msgid "GS Team"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:24
+msgctxt "team"
+msgid "Add New Member"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:25
+msgid "Add New Member"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:26
+msgid "New Team"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:27
+msgid "Edit Team"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:28
+msgid "View Team"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:29
+msgid "All Members"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:30
+msgid "Search Members"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:31
+msgid "Parent Teams:"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:32
+msgid "No Teams found."
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:33
+msgid "No Teams found in Trash."
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:67
+msgctxt "Taxonomy General Name"
+msgid "Team Group"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:68
+msgctxt "Taxonomy Singular Name"
+msgid "Team Group"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:70
+msgid "All Team Group"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:71
+msgid "Parent Team Group"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:72
+msgid "Parent Team Group:"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:73
+msgid "New Team Group"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:74
+msgid "Add New Team Group"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:75
+msgid "Edit Team Group"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:76
+msgid "Update Team Group"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:77
+msgid "Separate Team Group with commas"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:78
+msgid "Search Team Group"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:79
+msgid "Add or remove Team Group"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:80
+msgid "Choose from the most used Team Groups"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:81, ../includes/gs-team-cpt.php:127, ../includes/gs-team-cpt.php:173, ../includes/gs-team-cpt.php:219, ../includes/gs-team-cpt.php:265
+msgid "Not Found"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:113
+msgctxt "Taxonomy General Name"
+msgid "Language"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:114
+msgctxt "Taxonomy Singular Name"
+msgid "Language"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:115, ../includes/gs-team-functions.php:83, ../includes/shortcode-builder/gs-team-shortcode-builder.php:615
+msgid "Language"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:116
+msgid "All Language"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:117
+msgid "Parent Language"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:118
+msgid "Parent Language:"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:119
+msgid "New Language"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:120
+msgid "Add New Language"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:121
+msgid "Edit Language"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:122
+msgid "Update Language"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:123
+msgid "Separate Language with commas"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:124
+msgid "Search Language"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:125
+msgid "Add or remove Language"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:126
+msgid "Choose from the most used Languages"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:159
+msgctxt "Taxonomy General Name"
+msgid "Location"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:160
+msgctxt "Taxonomy Singular Name"
+msgid "Location"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:161, ../includes/gs-team-functions.php:82, ../includes/shortcode-builder/gs-team-shortcode-builder.php:614
+msgid "Location"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:162
+msgid "All Location"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:163
+msgid "Parent Location"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:164
+msgid "Parent Location:"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:165
+msgid "New Location"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:166
+msgid "Add New Location"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:167
+msgid "Edit Location"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:168
+msgid "Update Location"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:169
+msgid "Separate Location with commas"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:170
+msgid "Search Location"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:171
+msgid "Add or remove Location"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:172, ../includes/gs-team-cpt.php:218
+msgid "Choose from the most used Locations"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:205
+msgctxt "Taxonomy General Name"
+msgid "Gender"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:206
+msgctxt "Taxonomy Singular Name"
+msgid "Gender"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:207, ../includes/gs-team-functions.php:85, ../includes/shortcode-builder/gs-team-shortcode-builder.php:617
+msgid "Gender"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:208
+msgid "All Gender"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:209
+msgid "Parent Gender"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:210
+msgid "Parent Gender:"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:211
+msgid "New Gender"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:212
+msgid "Add New Gender"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:213
+msgid "Edit Gender"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:214
+msgid "Update Gender"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:215
+msgid "Separate Gender with commas"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:216
+msgid "Search Gender"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:217
+msgid "Add or remove Gender"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:251
+msgctxt "Taxonomy General Name"
+msgid "Specialty"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:252
+msgctxt "Taxonomy Singular Name"
+msgid "Specialty"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:253, ../includes/gs-team-functions.php:84, ../includes/shortcode-builder/gs-team-shortcode-builder.php:616
+msgid "Specialty"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:254
+msgid "All specialty"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:255
+msgid "Parent specialty"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:256
+msgid "Parent specialty:"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:257
+msgid "New Specialty"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:258
+msgid "Add New Specialty"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:259
+msgid "Edit Specialty"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:260
+msgid "Update specialty"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:261
+msgid "Separate specialty with commas"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:262
+msgid "Search specialty"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:263
+msgid "Add or remove specialty"
+msgstr ""
+
+#: ../includes/gs-team-cpt.php:264
+msgid "Choose from the most used specialty"
+msgstr ""
+
+#: ../includes/gs-team-functions.php:75
+msgid "Show All Designation"
+msgstr ""
+
+#: ../includes/gs-team-functions.php:76
+msgid "Search By Name"
+msgstr ""
+
+#: ../includes/gs-team-functions.php:77, ../includes/gs-team-meta-fields.php:89, ../includes/shortcode-builder/gs-team-shortcode-builder.php:609
+msgid "Company"
+msgstr ""
+
+#: ../includes/gs-team-functions.php:78, ../includes/gs-team-meta-fields.php:109, ../includes/shortcode-builder/gs-team-shortcode-builder.php:610
+msgid "Address"
+msgstr ""
+
+#: ../includes/gs-team-functions.php:79, ../includes/gs-team-meta-fields.php:94, ../includes/shortcode-builder/gs-team-shortcode-builder.php:611
+msgid "Land Phone"
+msgstr ""
+
+#: ../includes/gs-team-functions.php:80, ../includes/gs-team-meta-fields.php:99, ../includes/shortcode-builder/gs-team-shortcode-builder.php:612
+msgid "Cell Phone"
+msgstr ""
+
+#: ../includes/gs-team-functions.php:81, ../includes/gs-team-meta-fields.php:104, ../includes/shortcode-builder/gs-team-shortcode-builder.php:613, ../templates/gs-team-layout-table-filter-dense.php:36
+msgid "Email"
+msgstr ""
+
+#: ../includes/gs-team-functions.php:86, ../includes/shortcode-builder/gs-team-shortcode-builder.php:618
+msgid "Read On"
+msgstr ""
+
+#: ../includes/gs-team-functions.php:87, ../includes/shortcode-builder/gs-team-shortcode-builder.php:619
+msgid "More"
+msgstr ""
+
+#: ../includes/gs-team-functions.php:88
+msgid "Download vCard"
+msgstr ""
+
+#: ../includes/gs-team-functions.php:89
+msgid "Reset Filters"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:114
+msgid "Ribbon"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:119
+msgid "vCard"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:120
+msgid "Add any external or internal link"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:162
+msgid "Icon"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:163
+msgid "Link"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:185, ../includes/gs-team-meta-fields.php:174, ../includes/gs-team-meta-fields.php:196
+msgid "Select icon"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:187, ../includes/gs-team-meta-fields.php:176, ../includes/gs-team-meta-fields.php:198
+msgid "ex: https://twitter.com/gsplugins"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:188, ../includes/gs-team-meta-fields.php:177, ../includes/gs-team-meta-fields.php:199, ../includes/gs-team-meta-fields.php:267, ../includes/gs-team-meta-fields.php:256, ../includes/gs-team-meta-fields.php:278
+msgid "Remove"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:205, ../includes/gs-team-meta-fields.php:284
+msgid "Add Row"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:241
+msgid "Title"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:242
+msgid "Percent"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:275
+msgid "ex: Wordpress"
+msgstr ""
+
+#: ../includes/gs-team-meta-fields.php:277
+msgid "ex: 90"
+msgstr ""
+
+#: ../includes/gs-team-restrict-template.php:15
+msgid "Sorry!"
+msgstr ""
+
+#: ../includes/gs-team-restrict-template.php:17
+msgid "This theme is not available in free version.<br>Please upgrade the plan to use this theme. Thanks!"
+msgstr ""
+
+#: ../includes/gs-team-restrict-template.php:19
+msgid "Learn more details"
+msgstr ""
+
+#: ../includes/gs-team-restrict-template.php:21
+msgid "Only Admin & Editor will see this message, visitor will see <strong>Grid 1 (Hover)</strong> template."
+msgstr ""
+
+#: ../includes/gs-team-restrict-template.php:23
+msgid "This message is generated by <strong>GS Team</strong> plugin."
+msgstr ""
+
+#: ../includes/gs-team-sortable.php:72, ../includes/gs-team-term-sort.php:103
+msgid "Custom Order for"
+msgstr ""
+
+#: ../includes/gs-team-sortable.php:104, ../includes/gs-team-term-sort.php:126
+msgid "No Team Memebr Found!"
+msgstr ""
+
+#: ../includes/gs-team-sortable.php:105, ../includes/gs-team-term-sort.php:127
+msgid "We didn't find any team member.</br>Please add some team members to sort them."
+msgstr ""
+
+#: ../includes/gs-team-sortable.php:106, ../includes/gs-team-term-sort.php:128
+msgid "Add Member"
+msgstr ""
+
+#: ../includes/gs-team-sortable.php:145, ../includes/gs-team-term-sort.php:189, ../includes/demo-data/gs-team-dummy-data.php:163, ../includes/demo-data/gs-team-dummy-data.php:182, ../includes/demo-data/gs-team-dummy-data.php:201, ../includes/demo-data/gs-team-dummy-data.php:214, ../includes/demo-data/gs-team-dummy-data.php:227, ../includes/demo-data/gs-team-dummy-data.php:240, ../includes/demo-data/gs-team-dummy-data.php:1044, ../includes/shortcode-builder/gs-team-shortcode-builder.php:346, ../includes/shortcode-builder/gs-team-shortcode-builder.php:428, ../includes/shortcode-builder/gs-team-shortcode-builder.php:463, ../includes/shortcode-builder/gs-team-shortcode-builder.php:528, ../includes/shortcode-builder/gs-team-shortcode-builder.php:560, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1249
+msgid "Unauthorised Request"
+msgstr ""
+
+#: ../includes/gs-team-template-loader.php:53
+msgid "Template file not found - GsPlugins"
+msgstr ""
+
+#: ../includes/gs-team-widgets.php:18, ../includes/integrations/gs-team-integration-divi.php:112, ../includes/integrations/gs-team-integration-elementor.php:146, ../includes/integrations/gs-team-integration-gutenberg.php:51, ../includes/integrations/gs-team-integration-wpb-vc.php:36
+msgid "GS Team Members"
+msgstr ""
+
+#: ../includes/gs-team-widgets.php:19
+msgid "Display Team Members at widget area."
+msgstr ""
+
+#: ../includes/gs-team-widgets.php:26
+msgid "Meet Our Team"
+msgstr ""
+
+#: ../includes/gs-team-widgets.php:58
+msgid "Total Members to display"
+msgstr ""
+
+#: ../includes/gs-team-widgets.php:69
+msgid "All Groups"
+msgstr ""
+
+#: ../includes/demo-data/gs-team-dummy-data.php:257
+msgid "Dummy Team members already imported"
+msgstr ""
+
+#: ../includes/demo-data/gs-team-dummy-data.php:271
+msgid "Dummy Team members imported"
+msgstr ""
+
+#: ../includes/demo-data/gs-team-dummy-data.php:293
+msgid "Dummy Team members deleted"
+msgstr ""
+
+#: ../includes/demo-data/gs-team-dummy-data.php:311
+msgid "Dummy Shortcodes already imported"
+msgstr ""
+
+#: ../includes/demo-data/gs-team-dummy-data.php:325
+msgid "Dummy Shortcodes imported"
+msgstr ""
+
+#: ../includes/demo-data/gs-team-dummy-data.php:345
+msgid "Dummy Shortcodes deleted"
+msgstr ""
+
+#: ../includes/demo-data/gs-team-dummy-data.php:1028
+msgid "Don't show this message again"
+msgstr ""
+
+#: ../includes/integrations/gs-team-integration-divi.php:119, ../includes/integrations/gs-team-integration-wpb-vc.php:44
+msgid "Select Shortcode"
+msgstr ""
+
+#: ../includes/integrations/gs-team-integration-divi.php:122, ../includes/integrations/gs-team-integration-gutenberg.php:52
+msgid "Show Team Members by GS Team Plugin"
+msgstr ""
+
+#: ../includes/integrations/gs-team-integration-elementor.php:162
+msgid "Content"
+msgstr ""
+
+#: ../includes/integrations/gs-team-integration-elementor.php:170
+msgid "Team Shortcode"
+msgstr ""
+
+#: ../includes/integrations/gs-team-integration-elementor.php:186, ../includes/integrations/gs-team-integration-gutenberg.php:54, ../includes/integrations/gs-team-integration-wpb-vc.php:114
+msgid "Edit this shortcode"
+msgstr ""
+
+#: ../includes/integrations/gs-team-integration-elementor.php:188, ../includes/integrations/gs-team-integration-gutenberg.php:55, ../includes/integrations/gs-team-integration-wpb-vc.php:116, ../includes/shortcode-builder/gs-team-shortcode-builder.php:653
+msgid "Edit"
+msgstr ""
+
+#: ../includes/integrations/gs-team-integration-elementor.php:192, ../includes/integrations/gs-team-integration-gutenberg.php:56, ../includes/integrations/gs-team-integration-wpb-vc.php:120
+msgid "Create new shortcode"
+msgstr ""
+
+#: ../includes/integrations/gs-team-integration-elementor.php:194, ../includes/integrations/gs-team-integration-wpb-vc.php:122
+msgid "Craete"
+msgstr ""
+
+#: ../includes/integrations/gs-team-integration-gutenberg.php:53
+msgid "GS Team Shortcode"
+msgstr ""
+
+#: ../includes/integrations/gs-team-integration-gutenberg.php:57
+msgid "Create"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:93
+msgid "Shortcode Preview"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:318, ../includes/shortcode-builder/gs-team-shortcode-builder.php:351
+msgid "Shortcode ID missing"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:337
+msgid "No shortcode found"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:358
+msgid "No shortcode found to update"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:382
+msgid "Database Error: %1$s"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:387
+msgid "Shortcode updated"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:431
+msgid "Undefined"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:434
+msgid "Please configure the settings properly"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:455
+msgid "Shortcode created successfully"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:467
+msgid "Clone Id not provided"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:471
+msgid "Clone shortcode not found"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:475
+msgid "- Cloned"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:498
+msgid "Shortcode cloned successfully"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:533
+msgid "No shortcode ids provided"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:545
+msgid "Shortcode has been deleted"
+msgid_plural "Shortcodes have been deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:565
+msgid "No temp key provided"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:566
+msgid "No temp settings provided"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:572
+msgid "Temp data saved"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:580
+msgid "Install Demo Data"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:581
+msgid "Quick start with GS Plugins by installing the demo data"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:583, ../includes/shortcode-builder/gs_team_shortcode_builder_page.php:18
+msgid "Bulk Import"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:584
+msgid "Add team members faster by GS Bulk Import feature"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:586
+msgid "Preference"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:587
+msgid "Save Preference"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:588
+msgid "Team Members Slug"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:589
+msgid "After updating GS Team Members slug, Member may NOT found with 404 error. In this senario go to Settings > Permalinks. It'll flush URL. Clear cache if needed & refresh Single Team Member page to display."
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:591
+msgid "Display ACF Fields"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:592
+msgid "Display ACF fields in the single pages"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:594
+msgid "Disable Lazy Load"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:595
+msgid "Disable Lazy Load for team member images"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:597
+msgid "Lazy Load Class"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:598
+msgid "Add class to disable lazy loading, multiple classes should be separated by space"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:600
+msgid "ACF Fields Position"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:601
+msgid "Position to display ACF fields"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:603
+msgid "Enable Multilingual"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:604
+msgid "Enable Multilingual mode to translate below strings using any Multilingual plugin like wpml or loco translate."
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:606
+msgid "Filter Designation Text"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:607
+msgid "Serach Text"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:608
+msgid "Include fields when search"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:620
+msgid "Custom CSS"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:622
+msgid "Replace with preferred text for Designation"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:623
+msgid "Replace with preferred text for Search"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:624
+msgid "Replace with preferred text for Company"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:625
+msgid "Replace with preferred text for Address"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:626
+msgid "Replace with preferred text for Land Phone"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:627
+msgid "Replace with preferred text for Cell Phone"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:628
+msgid "Replace with preferred text for Email"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:629
+msgid "Replace with preferred text for Location"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:630
+msgid "Replace with preferred text for Language"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:631
+msgid "Replace with preferred text for Specialty"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:632
+msgid "Replace with preferred text for Gender"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:633
+msgid "Replace with preferred text for Read On"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:634
+msgid "Replace with preferred text for More"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:635
+msgid "Enable searching through all fields"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:638
+msgid "vCard Text"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:639
+msgid "Replace with preferred text for vCard Text"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:641
+msgid "Reset Filters Text"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:642
+msgid "Replace with preferred text for Reset Filters button text"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:644, ../includes/shortcode-builder/gs_team_shortcode_builder_page.php:14
+msgid "Shortcodes"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:645
+msgid "Shortcode"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:646
+msgid "Global Settings for GS Team Members"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:647
+msgid "All shortcodes for GS Team Member"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:648
+msgid "Create Shortcode"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:649
+msgid "Create New Shortcode"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:650, ../templates/gs-team-layout-table-box.php:32, ../templates/gs-team-layout-table-filter-dense.php:34, ../templates/gs-team-layout-table-filter.php:34, ../templates/gs-team-layout-table-odd-even.php:32, ../templates/gs-team-layout-table.php:32
+msgid "Name"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:651
+msgid "Action"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:652
+msgid "Actions"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:654
+msgid "Clone"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:655
+msgid "Delete"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:656
+msgid "Delete All"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:657
+msgid "Create a new shortcode & save it to use globally in anywhere"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:658
+msgid "Edit Shortcode"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:659
+msgid "General Settings"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:660
+msgid "Style Settings"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:661
+msgid "Query Settings"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:662
+msgid "General"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:663
+msgid "Style"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:664
+msgid "Query"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:665
+msgid "Columns"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:666
+msgid "Desktop Slides"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:667
+msgid "Enter the slides number for desktop"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:668
+msgid "Tablet Slides"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:669
+msgid "Enter the slides number for tablet"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:670
+msgid "Portrait Mobile Slides"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:671
+msgid "Enter the slides number for portrait or large display mobile"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:672
+msgid "Mobile Slides"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:673
+msgid "Enter the slides number for mobile"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:674
+msgid "Style & Theming"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:676
+msgid "Link Team Members"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:677
+msgid "Add links to the Member's name, description & image to display popup or to single member page"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:678
+msgid "Thumbnail Sizes"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:679
+msgid "Select a thumbnail size"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:680
+msgid "Link Type"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:681
+msgid "Choose the link type of team members"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:683
+msgid "Member Designation"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:684
+msgid "Member Details"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:685
+msgid "Social Connection"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:686
+msgid "Pagination"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:687
+msgid "Next / Prev Member"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:688
+msgid "Instant Search by Name"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:689
+msgid "Filter by Designation"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:690
+msgid "Filter by Location"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:691
+msgid "Filter by Language"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:692
+msgid "Filter by Gender"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:693
+msgid "Filter by Specialty"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:694
+msgid "Filter Columns"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:695
+msgid "Social Link Target"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:696
+msgid "Details Control"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:697
+msgid "Popup Column"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:698
+msgid "Filter Category Position"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:699
+msgid "Panel"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:700
+msgid "Name Font Size"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:701
+msgid "Name Font Weight"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:702
+msgid "Name Font Style"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:703
+msgid "Name Color"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:704
+msgid "Name BG Color"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:705
+msgid "Tooltip BG Color"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:706
+msgid "Info BG Color"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:707
+msgid "Hover Icon BG Color"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:708
+msgid "Ribbon Background Color"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:709
+msgid "Role Font Size"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:710
+msgid "Role Font Weight"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:711
+msgid "Role Font Style"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:712
+msgid "Role Color"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:713
+msgid "Popup Arrow Color"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:714
+msgid "Team Members"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:715
+msgid "Order"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:716
+msgid "Order By"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:717
+msgid "Group"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:718
+msgid "Exclude Group"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:719
+msgid "Select specific team group to hide that specific group members"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:721
+msgid "Theme"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:722
+msgid "Font Size"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:723
+msgid "Font Weight"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:724
+msgid "Font Style"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:725, ../includes/shortcode-builder/gs-team-shortcode-builder.php:768
+msgid "Shortcode Name"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:727
+msgid "Select number of Team columns"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:728
+msgid "Select preffered Style & Theme"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:729
+msgid "Show or Hide Team Member Name"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:730
+msgid "Show or Hide Team Member Designation"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:731
+msgid "Show or Hide Team Member Details"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:732
+msgid "Show or Hide Team Member Social Connections"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:733
+msgid "Show or Hide Team Member paginations"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:734
+msgid "Show or Hide Next / Prev Member link at Single Team Template"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:735
+msgid "Show or Hide Instant Search"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:736
+msgid "Show or Hide Filter by Designation"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:737
+msgid "Show or Hide Filter by Location"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:738
+msgid "Show or Hide Filter by Language"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:739
+msgid "Show or Hide Filter by gender"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:740
+msgid "Show or Hide Filter by Specialty"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:741, ../includes/shortcode-builder/gs-team-shortcode-builder.php:742
+msgid "Specify target to load the Links, Default New Tab"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:743
+msgid "Define maximum number of characters in Member details. Default 100"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:744
+msgid "Set column for popup"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:745
+msgid "Set max team numbers you want to show, set -1 for all members"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:746
+msgid "Select specific team group to show that specific group members"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:748
+msgid "Enable Multi Select"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:749
+msgid "Enable multi selection on the filters, Default is Off"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:750
+msgid "Multi Select Ellipsis"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:751
+msgid "Show multi selected values in ellipsis mode, Default is Off"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:753
+msgid "Enable All Filter"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:754
+msgid "Enable All filter in the filter templates, Default is On"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:756
+msgid "Enable Child Filters"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:757
+msgid "Enable child group filters, Default is Off"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:759
+msgid "Enable Scroll Animation"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:760
+msgid "Enable scroll animation, Default is On"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:762
+msgid "All filter text"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:763
+msgid "All filter text for filter templates, Default is All"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:765
+msgid "Reset Filters Button"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:766
+msgid "Enable Reset all filters button in filter themes, Default is Off "
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:769
+msgid "Save Shortcode"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:770
+msgid "Preview Shortcode"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:778
+msgid "Grid 1 (Hover) - Free"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:782
+msgid "Circle 1 (Hover) - Free"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:786
+msgid "Horizontal 1 (Square Right Info) - Free"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:790
+msgid "Horizontal 2 (Square Left Info) - Free"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:794
+msgid "Horizontal 3 (Circle Right Info) - Free"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:798
+msgid "Horizontal 4 (Circle Left Info) - Free"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:805
+msgid "Grid 2 (Tooltip) - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:809
+msgid "Grid 3 (Static) - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:813
+msgid "Flip - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:817
+msgid "Drawer 1 - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:821
+msgid "Drawer 2 - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:825
+msgid "Table 1 (Underline) - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:829
+msgid "Table 2 (Box Border) - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:833
+msgid "Table 3 (Odd Even) - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:837
+msgid "Table & Filter - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:841
+msgid "Table & Filter Dense - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:845
+msgid "Filter Grid & To Single - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:849
+msgid "List 1 (Square Right Info) - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:853
+msgid "List 2 (Square Left Info) - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:857
+msgid "Slider 1 (Hover) - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:861
+msgid "Popup 1 - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:865
+msgid "To Single - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:869
+msgid "Filter 1 (Hover & Pop) - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:873
+msgid "Filter 2 (Selected Cats) - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:877
+msgid "Filter Grid with vcard - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:881
+msgid "Group Filter One - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:885
+msgid "Panel Slide - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:889
+msgid "Gray 1 (Square) - Pro"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:911
+msgid "Default"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:915
+msgid "Single Page"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:922
+msgid "Popup"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:954
+msgid "One"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:958, ../includes/shortcode-builder/gs-team-shortcode-builder.php:964
+msgid "Two"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:968
+msgid "Three"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:974, ../includes/shortcode-builder/gs-team-shortcode-builder.php:988
+msgid "Left"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:978, ../includes/shortcode-builder/gs-team-shortcode-builder.php:992
+msgid "Center"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:982, ../includes/shortcode-builder/gs-team-shortcode-builder.php:996
+msgid "Right"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1002
+msgid "Custom Order"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1006
+msgid "Team ID"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1010
+msgid "Team Name"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1018
+msgid "Random"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1024
+msgid "DESC"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1028
+msgid "ASC"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1036, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1084
+msgid "100 - Thin"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1040, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1088
+msgid "200 - Extra Light"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1044, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1092
+msgid "300 - Light"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1048, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1096
+msgid "400 - Regular"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1052, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1100
+msgid "500 - Medium"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1056, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1104
+msgid "600 - Semi-Bold"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1060, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1108
+msgid "700 - Bold"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1064, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1112
+msgid "800 - Extra Bold"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1068, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1116
+msgid "900 - Black"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1074, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1122
+msgid "Normal"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1078, ../includes/shortcode-builder/gs-team-shortcode-builder.php:1126
+msgid "Italic"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1170
+msgid "1 Column"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1174
+msgid "2 Columns"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1178
+msgid "3 Columns"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1182
+msgid "4 Columns"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1186
+msgid "5 Columns"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1190
+msgid "6 Columns"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1201
+msgid "After Skills"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1205
+msgid "After Description"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1209
+msgid "After Meta Details"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1259
+msgid "Preference saved"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs-team-shortcode-builder.php:1270
+msgid "No preference provided"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs_team_shortcode_builder_page.php:15
+msgid "Create New"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs_team_shortcode_builder_page.php:16
+msgid "Preferences"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs_team_shortcode_builder_page.php:17
+msgid "Demo Data"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs_team_shortcode_builder_preview.php:29
+msgid "Something went wrong!"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs_team_shortcode_builder_preview.php:30
+msgid "Data not found for preview, probably it's a bug, contact with plugin author"
+msgstr ""
+
+#: ../includes/shortcode-builder/gs_team_shortcode_builder_shortcode.php:39
+msgid "No shortcode ID found"
+msgstr ""
+
+#: ../templates/gs-team-layout-table-box.php:31, ../templates/gs-team-layout-table-odd-even.php:31, ../templates/gs-team-layout-table.php:31
+msgid "Image"
+msgstr ""
+
+#: ../templates/gs-team-layout-table-box.php:33, ../templates/gs-team-layout-table-odd-even.php:33, ../templates/gs-team-layout-table.php:33
+msgid "Position"
+msgstr ""
+
+#: ../templates/gs-team-layout-table-box.php:34, ../templates/gs-team-layout-table-odd-even.php:34, ../templates/gs-team-layout-table.php:34
+msgid "Description"
+msgstr ""
+
+#: ../templates/gs-team-layout-table-box.php:37, ../templates/gs-team-layout-table-odd-even.php:37, ../templates/gs-team-layout-table.php:37
+msgid "Social Links"
+msgstr ""
+
+#: ../templates/gs-team-layout-table-filter-dense.php:35
+msgid "Phone"
+msgstr ""
+
+#: ../templates/gs-team-layout-table-filter.php:35
+msgid "Department"
+msgstr ""
+
+#: ../templates/gs-team-layout-table-filter.php:36
+msgid "Contact"
+msgstr ""
+
+#: ../templates/gs-team-layout-table-filter.php:64
+msgid "SEND EMAIL"
+msgstr ""
+
+#: ../templates/partials/gs-team-layout-no-team-member.php:15
+msgid "No team member found"
+msgstr ""
+
+#: ../templates/partials/gs-team-layout-skills.php:25
+msgid "Skills"
+msgstr ""

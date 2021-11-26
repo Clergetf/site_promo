@@ -8,6 +8,8 @@
 namespace WPDM\Admin\Menu;
 
 
+use WPDM\__\__;
+
 class Categories
 {
 
@@ -471,7 +473,7 @@ class Categories
             //$MetaData = get_option( "__wpdmcategory" );
             //$MetaData = maybe_unserialize($MetaData);
             foreach ($_POST['__wpdmcategory'] as $metaKey => $metaValue){
-              update_term_meta($term_id, "__wpdm_".$metaKey, $metaValue);
+              update_term_meta($term_id, "__wpdm_".__::sanitize_var($metaKey, 'txt'), __::sanitize_var($metaValue));
             }
             //$MetaData[$term_id] = $_POST['__wpdmcategory'];
             //update_option( "__wpdmcategory", $MetaData );

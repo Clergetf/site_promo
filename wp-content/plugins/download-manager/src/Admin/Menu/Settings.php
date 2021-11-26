@@ -2,6 +2,7 @@
 
 namespace WPDM\Admin\Menu;
 
+use WPDM\__\__;
 use WPDM\__\Installer;
 use WPDM\__\Session;
 
@@ -205,21 +206,15 @@ class Settings
 
             $refresh = 0;
 
-            $page_id = $_POST['__wpdm_user_dashboard'];
+            $page_id = wpdm_query_var('__wpdm_user_dashboard', 'int');
             if($page_id != '') {
                 $page_name = get_post_field("post_name", $page_id);
                 add_rewrite_rule('^' . $page_name . '/(.+)/?', 'index.php?page_id=' . $page_id . '&udb_page=$matches[1]', 'top');
                 $refresh = 1;
             }
 
-            $page_id = $_POST['__wpdm_author_dashboard'];
-            if($page_id != '') {
-                $page_name = get_post_field("post_name", $page_id);
-                add_rewrite_rule('^' . $page_name . '/(.+)/?', 'index.php?page_id=' . $page_id . '&adb_page=$matches[1]', 'top');
-                $refresh = 1;
-            }
 
-            $page_id = $_POST['__wpdm_author_profile'];
+	        $page_id = wpdm_query_var('__wpdm_author_profile', 'int');
             if((int)$page_id > 0) {
                 $page_name = get_post_field("post_name", $page_id);
                 add_rewrite_rule('^' . $page_name . '/(.+)/?$', 'index.php?pagename=' . $page_name . '&profile=$matches[1]', 'top');
@@ -283,6 +278,7 @@ class Settings
 
     function pluginUpdate(){
         if(isset($_REQUEST['__lononce']) && wp_verify_nonce($_REQUEST['__lononce'], WPDMSET_NONCE_KEY)){
+            __::isAuthentic('__lononce');
             delete_option('__wpdm_suname');
             delete_option('__wpdm_supass');
             delete_option('__wpdm_purchased_items');

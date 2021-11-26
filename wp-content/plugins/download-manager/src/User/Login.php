@@ -95,8 +95,8 @@ class Login
                 $regurl = get_permalink($regurl);
         }
         $log_redirect = $_SERVER['REQUEST_URI'];
-        if (isset($params['redirect'])) $log_redirect = esc_url($params['redirect']);
-        if (isset($_GET['redirect_to'])) $log_redirect = esc_url($_GET['redirect_to']);
+        if (isset($params['redirect'])) $log_redirect = esc_url_raw($params['redirect']);
+        if (isset($_GET['redirect_to'])) $log_redirect = esc_url_raw($_GET['redirect_to']);
 
         $up = parse_url($log_redirect);
         if (isset($up['host']) && $up['host'] != $_SERVER['SERVER_NAME']) $log_redirect = $_SERVER['REQUEST_URI'];
@@ -164,9 +164,9 @@ class Login
 
         Session::clear('login_error');
         $creds = array();
-        $creds['user_login'] = isset($_POST['wpdm_login']['log']) ? $_POST['wpdm_login']['log'] : '';
+        $creds['user_login'] = isset($_POST['wpdm_login']['log']) ? wpdm_query_var('wpdm_login/log') : '';
         $creds['user_password'] = isset($_POST['wpdm_login']['pwd']) ? $_POST['wpdm_login']['pwd'] : '';
-        $creds['remember'] = isset($_POST['rememberme']) ? $_POST['rememberme'] : false;
+        $creds['remember'] = isset($_POST['rememberme']) ? wpdm_query_var('rememberme', 'int') : false;
         $user = wp_signon($creds, false);
         if (is_wp_error($user)) {
             $login_error = $user->get_error_message();

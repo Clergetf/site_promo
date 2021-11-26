@@ -1,8 +1,3 @@
-
-<script type="text/javascript" src="<?php echo includes_url();?>/js/jquery/jquery.form.min.js"></script>
-<link rel="stylesheet" href="<?php echo plugins_url('/download-manager/assets/css/chosen.css'); ?>" />
-<script language="JavaScript" src="<?php echo plugins_url('/download-manager/assets/js/chosen.jquery.min.js'); ?>"></script>
-
 <style>
 
     .note{
@@ -29,17 +24,7 @@
         min-width: 150px;
     }
 
-    .wpdm-loading {
-        background: url('<?php  echo plugins_url('download-manager/images/wpdm-settings.png'); ?>') center center no-repeat;
-        width: 16px;
-        height: 16px;
-        /*border-bottom: 2px solid #2a2dcb;*/
-        /*border-left: 2px solid #ffffff;*/
-        /*border-right: 2px solid #c30;*/
-        /*border-top: 2px solid #3dd269;*/
-        /*border-radius: 100%;*/
 
-    }
 
     .w3eden .panel-footer{
         line-height: 22px;
@@ -216,7 +201,7 @@
         display: none;
     }
 </style>
-<link rel="stylesheet" href="<?= WPDM_BASE_URL ?>/assets/css/settings-ui.css" />
+<link rel="stylesheet" href="<?= WPDM_BASE_URL ?>assets/css/settings-ui.css" />
 <div class="wrap w3eden">
     <div id="wpdm-admin-page-header">
         <div id="wpdm-admin-main-header">

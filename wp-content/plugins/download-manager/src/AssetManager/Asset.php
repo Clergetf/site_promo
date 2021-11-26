@@ -208,8 +208,7 @@ class Asset
         $mime = wp_check_filetype($path);
         if(strstr(wpdm_valueof($mime, 'type'), "text/")) {
             $class = str_replace("text/", "", wpdm_valueof($mime, 'type'));
-            $script = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/default.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script>';
-            return "<pre class='wpdm-asset wpdm-asset-text'><code class='$class'>" . esc_attr(file_get_contents($path)) . "</code></pre>{$script}";
+            return "<pre class='wpdm-asset wpdm-asset-text'><code class='$class'>" . esc_attr(file_get_contents($path)) . "</code></pre>";
         }
         $icon = \WPDM\__\FileSystem::fileTypeIcon($ext);
 

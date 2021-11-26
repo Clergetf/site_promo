@@ -2,6 +2,7 @@
 
 namespace WPDM\Admin;
 
+use WPDM\__\__;
 use WPDM\__\Email;
 use WPDM\Admin\Menu\AddOns;
 use WPDM\Admin\Menu\Categories;
@@ -32,10 +33,6 @@ class AdminController {
         add_action('admin_init', array($this, 'metaBoxes'), 0);
         add_action('admin_init', array(new Email(), 'preview'));
         add_action('admin_head', array($this, 'adminHead'));
-
-        add_action('wp_ajax_updatenow', array($this, 'updateNow'));
-
-        add_action('wp_ajax_wpdm_email_package_link', array($this, 'emailPackageLink'));
 
         add_action('wp_ajax_updateaddon', array($this, 'updateAddon'));
         add_action('wp_ajax_installaddon', array($this, 'installAddon'));
@@ -95,28 +92,28 @@ class AdminController {
             wp_enqueue_script('media-upload');
             wp_enqueue_media();
 
-            wp_enqueue_script('chosen', plugins_url('/download-manager/assets/js/chosen.jquery.min.js'), array('jquery'));
-            wp_enqueue_style('chosen-css', plugins_url('/download-manager/assets/css/chosen.css'));
-            wp_enqueue_style('jqui-css', plugins_url('/download-manager/assets/jqui/theme/jquery-ui.css'));
+            wp_enqueue_script('select2', WPDM_BASE_URL.'assets/select2/js/select2.min.js', array('jquery'));
+            wp_enqueue_style('select2-css', WPDM_BASE_URL.'assets/select2/css/select2.min.css');
+            wp_enqueue_style('jqui-css', WPDM_BASE_URL.'assets/jqui/theme/jquery-ui.css');
 
             wp_enqueue_script('wpdm-admin-bootstrap' );
 
-            wp_enqueue_script('wpdm-vue', plugins_url('/download-manager/assets/js/vue.min.js'));
-            wp_enqueue_script('wpdm-admin', plugins_url('/download-manager/assets/js/wpdm-admin.js'), array('jquery'));
+            wp_enqueue_script('wpdm-vue', WPDM_BASE_URL.'assets/js/vue.min.js');
+            wp_enqueue_script('wpdm-admin', WPDM_BASE_URL.'assets/js/wpdm-admin.js', array('jquery'));
 
 
             wp_enqueue_style( 'wpdm-font-awesome' );
             wp_enqueue_style( 'wpdm-admin-bootstrap' );
 
             //wp_enqueue_style('wpdm-bootstrap-theme', plugins_url('/download-manager/assets/css/front.css'));
-            wp_enqueue_style('wpdm-admin-styles', plugins_url('/download-manager/assets/css/admin-styles.css'), 9999);
+            wp_enqueue_style('wpdm-admin-styles', WPDM_BASE_URL.'assets/css/admin-styles.css', 9999);
 
             wp_enqueue_style( 'wp-color-picker' );
             wp_enqueue_script( 'wp-color-picker' );
 
 
         }
-        wp_enqueue_style('wpdm-gutenberg-styles', plugins_url('/download-manager/assets/css/gutenberg-styles.css'), 9999);
+        wp_enqueue_style('wpdm-gutenberg-styles',WPDM_BASE_URL.'assets/css/gutenberg-styles.css', 9999);
     }
 
     function pageHeader($title, $icon, $menus = [], $actions = [], $params = [])
@@ -124,41 +121,19 @@ class AdminController {
        include wpdm_admin_tpl_path("page-header.php", __DIR__.'/views');
     }
 
-    /**
-     * @usage mail package link to specified email address
-     * @since 4.6.9
-     */
-    function emailPackageLink(){
-        if(!wp_verify_nonce(wpdm_query_var('__edlnonce'), NONCE_KEY)) die('!!error!!');
-        $data = isset($_POST['emldllink'])?$_POST['emldllink']:array();
-        if(!isset($data['email']) || empty($data['email']))  die('!!error!!');
-        $user_emails = explode(",", $data['email']);
-        $pack = get_post($data['pid']);
-        $subject = !isset($data['subject']) || empty($data['subject'])? 'Download: '.$pack->post_title:$data['subject'];
-        $data['message'] = !isset($data['message']) || empty($data['message'])? 'Please click on following link to start download:':$data['message'];
-        $usage = isset($data['usage'])?(int)$data['usage']:3;
-        $expire = isset($data['expire'])?(double)$data['expire']:60;
-        foreach ($user_emails as $user_email) {
-            $download_link = WPDM()->package->expirableDownloadPage($data['pid'], $usage, $expire*$data['expire_multiply']);
-            $message = wp_kses_stripslashes($data['message']) . "<br/><a class='button' href='{$download_link}'>Download</a><br/>";
-            $params = array('subject' => $subject, 'to_email' => trim($user_email), 'message' => $message );
-            Email::send("default", $params);
-        }
-        die('!!sent!!');
-
-    }
 
     /**
      * @usage Single click add-on update
      */
     function updateAddon() {
-        if (isset($_POST['updateurl']) && current_user_can(WPDM_ADMIN_CAP)) {
+        if (isset($_POST['updateurl'])) {
+            __::isAuthentic('__upanonce', WPDM_PRI_NONCE, WPDM_ADMIN_CAP);
             include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
             include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
             $upgrader = new \Plugin_Upgrader(new \Plugin_Installer_Skin(compact('title', 'url', 'nonce', 'plugin', 'api')));
-            $downloadlink = $_POST['updateurl'] . '&wpdm_access_token=' . wpdm_access_token() . '&__wpdmnocache=' . uniqid();
+            $downloadlink = wpdm_query_var('updateurl') . '&wpdm_access_token=' . wpdm_access_token() . '&__wpdmnocache=' . uniqid();
             $update = new \stdClass();
-            $plugininfo = wpdm_plugin_data($_POST['plugin']);
+            $plugininfo = wpdm_plugin_data(wpdm_query_var('plugin'));
             deactivate_plugins($plugininfo['plugin_index_file'], true);
             delete_plugins(array($plugininfo['plugin_index_file']));
             $upgrader->install($downloadlink);
@@ -174,13 +149,14 @@ class AdminController {
      * @usage Single click add-on install
      */
     function installAddon() {
-        if (isset($_POST['updateurl']) && current_user_can(WPDM_ADMIN_CAP)) {
+        if (isset($_POST['updateurl'])) {
+	        __::isAuthentic('__upanonce', WPDM_PRI_NONCE, WPDM_ADMIN_CAP);
             include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
             include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
             $upgrader = new \Plugin_Upgrader(new \Plugin_Installer_Skin(compact('title', 'url', 'nonce', 'plugin', 'api')));
-            $downloadlink = $_POST['updateurl'] . '&wpdm_access_token=' . wpdm_access_token();
+            $downloadlink = wpdm_query_var('updateurl') . '&wpdm_access_token=' . wpdm_access_token();
             $upgrader->install($downloadlink);
-            $plugininfo = wpdm_plugin_data($_POST['plugin']);
+            $plugininfo = wpdm_plugin_data(wpdm_query_var('plugin'));
             if (file_exists(dirname(WPDM_BASE_DIR) . '/' . $plugininfo['plugin_index_file']))
                 activate_plugin($plugininfo['plugin_index_file']);
             die("Installed Successfully");
@@ -206,6 +182,7 @@ class AdminController {
 
     function removeNotices()
     {
+        __::isAuthentic('__rnnonce', WPDM_PUB_NONCE, WPDM_ADMIN_CAP);
         update_option('__wpdm_hide_admin_notice', 1, false);
         wp_send_json(['success' => true]);
     }
@@ -226,7 +203,7 @@ class AdminController {
                 });
 
                 jQuery('body').on('click', '#wpdmvnotice .notice-dismiss', function (){
-                    jQuery.post(ajaxurl, {action: 'wpdm_remove_admin_notice'});
+                    jQuery.post(ajaxurl, {action: 'wpdm_remove_admin_notice', __rnnonce: '<?= wp_create_nonce(WPDM_PUB_NONCE) ?>'});
                 });
 
             });

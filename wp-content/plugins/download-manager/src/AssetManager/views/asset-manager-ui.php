@@ -631,12 +631,12 @@ if(is_admin()){
                                             </div>
                                         </div>
 
-                                        <img src="http://wpdm/wp-content/plugins/download-manager/assets/images/share-links.png" style="max-width: 100%; margin-top: 10px; opacity: 0.2;" align="Share Links">
+                                        <img src="<?= WPDM_BASE_URL ?>assets/images/share-links.png" style="max-width: 100%; margin-top: 10px; opacity: 0.2;" align="Share Links">
 
 
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="comments">
-                                        <img src="http://wpdm/wp-content/plugins/download-manager/assets/images/asset-comments.png" style="max-width: 100%; margin-top: 15px; opacity: 0.5;" align="Comments">
+                                        <img src="<?= WPDM_BASE_URL ?>assets/images/asset-comments.png" style="max-width: 100%; margin-top: 15px; opacity: 0.5;" align="Comments">
                                     </div>
                                 </div>
 

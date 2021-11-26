@@ -41,14 +41,7 @@ if($ttype == 'email'){ ?>
                         <div class="form-group">
                             <?php _e( "Banner/Background Image URL" , "download-manager" ); ?>
                             <?php echo wpdm_media_field(array('placeholder' => __("Banner/Background Image URL" , "download-manager"), 'name' => '__wpdm_email_setting[banner]', 'id' => 'banner-url', 'value' => (isset($__wpdm_email_setting['banner'])?$__wpdm_email_setting['banner']:''))); ?>
-                            <div class="xbubble" style="margin-top: 5px;box-shadow: none;z-index: 999">
-                                <img class="bselect" src="https://wpdmcdn.s3.amazonaws.com/emails/brush.jpg" style="height: 32px;margin: 2px" />
-                                <img class="bselect" src="https://wpdmcdn.s3.amazonaws.com/emails/a.jpg" style="height: 32px;margin: 2px" />
-                                <img class="bselect" src="https://wpdmcdn.s3.amazonaws.com/emails/crain.jpg" style="height: 32px;margin: 2px" />
-                                <img class="bselect" src="https://wpdmcdn.s3.amazonaws.com/emails/c.jpg" style="height: 32px;margin: 2px" />
-                                <img class="bselect" src="https://wpdmcdn.s3.amazonaws.com/emails/z.jpg" style="height: 32px;margin: 2px" />
-                                <img class="bselect" src="https://wpdmcdn.s3.amazonaws.com/emails/oilpaint.jpg" style="height: 32px;margin: 2px" />
-                            </div>
+
                         </div>
                         <div class="form-group">
                             <?php _e( "Footer Text" , "download-manager" ); ?>

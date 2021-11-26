@@ -26,15 +26,9 @@ class Apply
         add_filter('wpdm_custom_data', array($this, 'skipLocks'), 10, 2);
         add_action("wp_ajax_nopriv_showLockOptions", array($this, 'showLockOptions'));
         add_action("wp_ajax_showLockOptions", array($this, 'showLockOptions'));
-        add_action("wp_ajax_wpdm_addtofav", array($this, 'addToFav'));
 
         add_action('wp_ajax_wpdm_verify_file_pass', array($this, 'checkFilePassword'));
         add_action('wp_ajax_nopriv_wpdm_verify_file_pass', array($this, 'checkFilePassword'));
-
-        add_action("wp_ajax_wpdm_email_lock", [$this, 'verifyEmailLock']);
-        add_action("wp_ajax_nopriv_wpdm_email_lock", [$this, 'verifyEmailLock']);
-
-        add_action("wp_ajax_wpdm_create_term", [$this, 'createTerm']);
 
         add_action("wp_ajax_wpdm_generate_password", [$this, 'generatePassword']);
         add_action("wp_ajax_wpdm-activate-shop", [$this, 'activatePremiumPackage']);
@@ -74,7 +68,6 @@ class Apply
         add_action('save_post', array($this, 'dashboardPages'));
         add_action('wp_ajax_clear_cache', array($this, 'clearCache'));
         add_action('wp_ajax_clear_stats', array($this, 'clearStats'));
-        add_action('wp_ajax_generate_tdl', array($this, 'generateTDL'));
         add_action('admin_head', array($this, 'uiColors'));
 
     }
@@ -440,14 +433,15 @@ class Apply
     {
         if (isset($_POST['actioninddlpvr'], $_POST['wpdmfileid']) && $_POST['actioninddlpvr'] != '') {
             $limit = get_option('__wpdm_private_link_usage_limit', 3);
-            $fileid = intval($_POST['wpdmfileid']);
-            $data = get_post_meta($_POST['wpdmfileid'], '__wpdm_fileinfo', true);
+            $fileid = wpdm_query_var('wpdmfileid', 'int');
+            $filepass = wpdm_query_var('filepass', 'escs');
+            $data = get_post_meta(wpdm_query_var('wpdmfileid', 'int'), '__wpdm_fileinfo', true);
             $data = $data ? $data : array();
             $package = get_post($fileid);
             $packagemeta = wpdm_custom_data($fileid);
-            $password = isset($data[$_POST['wpdmfile']]['password']) && $data[$_POST['wpdmfile']]['password'] != "" ? $data[$_POST['wpdmfile']]['password'] : $packagemeta['password'];
+            $password = isset($data[$fileid]['password']) && $data[$fileid]['password'] != "" ? $data[$fileid]['password'] : $packagemeta['password'];
             $pu = isset($packagemeta['password_usage']) && is_array($packagemeta['password_usage']) ? $packagemeta['password_usage'] : array();
-            if ($password == $_POST['filepass'] || strpos($password, "[" . $_POST['filepass'] . "]") !== FALSE) {
+            if ($password == $filepass || substr_count($password, "[" . $filepass . "]") > 0) {
                 $pul = $packagemeta['password_usage_limit'];
                 if (is_array($pu) && isset($pu[$password]) && $pu[$password] >= $pul && $pul > 0) {
                     $data['error'] = __("Password usages limit exceeded", "download-manager");
@@ -556,29 +550,8 @@ class Apply
     function showLockOptions()
     {
         if (!isset($_REQUEST['id'])) die('ID Missing!');
-        echo WPDM()->package->downloadLink((int)$_REQUEST['id'], 1);
+        echo WPDM()->package->downloadLink(wpdm_query_var('id', 'int'), 1);
         die();
-    }
-
-    function addToFav()
-    {
-        if (!is_user_logged_in()) die('error');
-        $pid = (int)$_REQUEST['pid'];
-        $ufavs = maybe_unserialize(get_post_meta($pid, '__wpdm_favs', true));
-        $myfavs = maybe_unserialize(get_user_meta(get_current_user_id(), '__wpdm_favs', true));
-        if (!is_array($myfavs)) $myfavs = array();
-        if (!is_array($ufavs)) $ufavs = array();
-
-        if (is_array($myfavs) && ($key = array_search($_REQUEST['pid'], $myfavs)) !== false) {
-            unset($myfavs[$key]);
-            if (isset($ufavs[get_current_user_id()])) unset($ufavs[get_current_user_id()]);
-        } else {
-            $myfavs[] = $_REQUEST['pid'];
-            $ufavs[get_current_user_id()] = time();
-        }
-        update_user_meta(get_current_user_id(), '__wpdm_favs', $myfavs);
-        update_post_meta($pid, '__wpdm_favs', $ufavs);
-        die('ok');
     }
 
 
@@ -615,28 +588,6 @@ class Apply
         return $user;
     }
 
-    function generateTDL()
-    {
-        if (is_user_logged_in() && AuthorDashboard::hasAccess(get_current_user_id()) && wp_verify_nonce($_REQUEST['__tdlnonce'], NONCE_KEY)) {
-            $pid = (int)$_REQUEST['pid'];
-            $pack = get_post($pid);
-            if (current_user_can(WPDM_ADMIN_CAP) || $pack->post_author == get_current_user_id()) {
-                Session::set('__wpdm_unlocked_' . $pid, 1);
-                $key = uniqid();
-                $expire = time() + ((int)$_REQUEST['exmisd'] * (int)$_REQUEST['expire_multiply']);
-                update_post_meta($pid, "__wpdmkey_" . $key, array('use' => (int)$_REQUEST['ulimit'], 'expire' => $expire));
-                $download_page_key = Crypt::encrypt(array('pid' => $pid, 'key' => $key));
-                $download_page = home_url("wpdm-download/{$download_page_key}");
-                $download_url = wpdm_download_url($pid, array("_wpdmkey" => $key));
-                wp_send_json(array('download_url' => $download_url, 'download_page' => $download_page));
-                die();
-            }
-        }
-        wp_send_json(array('download_url' => 'Error! Unauthorized Access', 'download_page' => 'Error! Unauthorized Access'));
-
-    }
-
-
 
     function validateLoginPage($content)
     {
@@ -658,129 +609,6 @@ class Apply
             $feed = false;
         return $feed;
     }
-
-    function verifyEmailLock(){
-        global $wpdb;
-
-        if (!isset($_POST['__wpdm_ID'])) return;
-        $id = (int)$_POST['__wpdm_ID'];
-        $key = uniqid();
-        $file = get_post($id, ARRAY_A);
-        $file = wpdm_setup_package_data($file);
-        $file1 = $file;
-        $data = array('error' => '', 'downloadurl' => '');
-
-        if (wpdm_verify_email(wpdm_query_var('email'))) {
-
-            $subject = "Your Download Link";
-            $site = get_option('blogname');
-
-            $limit = get_option('__wpdm_private_link_usage_limit',3);
-            $xpire_period = ((int)get_option('__wpdm_private_link_expiration_period', 3)) * ((int)get_option('__wpdm_private_link_expiration_period_unit', 60));
-            $xpire_period = $xpire_period > 0 ? $xpire_period :  3600;
-
-            //When there are custom form data with the email lock form, ex: Name, Company Name, Position, etc.
-            $custom_form_data = isset($_POST['custom_form_field']) ? $_POST['custom_form_field'] : array();
-            if(wpdm_query_var('name') !== '') $custom_form_data = ['name' => wpdm_query_var('name')] + $custom_form_data;
-
-            //do something before sending download link
-            do_action("wpdm_before_email_download_link", $_POST, $file);
-
-            $show_download_link_instantly = isset($file['email_lock_idl']) ? (int)$file['email_lock_idl'] : 3;
-            $show_download_link_instantly_also_mail = isset($file['email_lock_idl_email']) ? (int)$file['email_lock_idl_email'] : 0;
-
-            $request_status =  $show_download_link_instantly === 0 ? 3 : $show_download_link_instantly;
-            $wpdb->insert("{$wpdb->prefix}ahm_emails", array('email' => $_POST['email'], 'pid' => $file['ID'], 'date' => time(), 'custom_data' => serialize($custom_form_data), 'request_status' => $request_status));
-            $subscriberID = $wpdb->insert_id;
-
-            $download_url = add_query_arg(['subscriber' => \WPDM\__\Crypt::encrypt($subscriberID)], WPDM()->package->expirableDownloadLink($id, $limit, $xpire_period));
-            $download_page_url  = add_query_arg(['subscriber' =>\WPDM\__\Crypt::encrypt($subscriberID)], WPDM()->package->expirableDownloadPage($id, $limit, $xpire_period));
-
-            if($show_download_link_instantly === 0 || ($show_download_link_instantly == 1 && $show_download_link_instantly_also_mail == 0)) {
-                $name = isset($cff['name'])?$cff['name']:'';
-                $email_params = array('to_email' => $_POST['email'], 'name' => $name, 'download_count' => $limit,  'package_name' => $file['post_title'], 'package_url' => get_permalink($id), 'download_url' => $download_url, 'download_page_url' => $download_page_url);
-                $email_params = apply_filters("wpdm_email_lock_mail_params", $email_params, $file);
-                \WPDM\__\Email::send("email-lock", $email_params);
-
-            }
-            $elmsg = sanitize_textarea_field(get_post_meta($id, '__wpdm_email_lock_msg', true));
-            if ($show_download_link_instantly === 0) {
-                $data['downloadurl'] = "";
-                $data['msg'] = ($elmsg !='' ? $elmsg : __( "Download link sent to your email!" , "download-manager" ));
-                $data['type'] = 'success';
-            } else if ($show_download_link_instantly === 2) {
-                $data['downloadurl'] = "";
-                $data['msg'] = ($elmsg !='' ? $elmsg : __( "Admin will review your request soon!" , "download-manager" ));
-                $data['type'] = 'success';
-            } else {
-                $data['downloadurl'] = $download_url;
-                if($show_download_link_instantly_also_mail == 0)
-                    $data['msg'] = ($elmsg !='' ? $elmsg : __( "Download link also sent to your email!" , "download-manager" ));
-                else
-                    $data['msg'] = ($elmsg !='' ? $elmsg : __( "Download will be started shortly!" , "download-manager" ));
-            }
-
-            if(!wpdm_is_ajax()){
-
-                @setcookie("wpdm_getlink_data_".$key, json_encode($data));
-
-                if(isset($data['downloadurl']) && $data['downloadurl']!=''){
-                    header("location: ".$data['downloadurl']);
-                    die();
-                }
-
-                header("location: ".$_SERVER['HTTP_REFERER']."#nojs_popup|ckid:".$key);
-                die();
-            }
-
-            $_pdata = $_POST;
-            $_pdata['pid'] = $file['ID'];
-            $_pdata['time'] = time();
-            Session::set("__wpdm_email_lock_verified", $_pdata, 604800);
-            wp_send_json($data);
-            die();
-        } else {
-            $data['downloadurl'] = "";
-            $data['msg'] =  get_option('__wpdm_blocked_domain_msg');
-            if(trim($data['msg']) === '') $data['msg'] = __( "Invalid Email Address!" , "download-manager" );
-            $data['type'] =  'error';
-
-            if(!wpdm_is_ajax()){
-
-                @setcookie("wpdm_getlink_data_".$key, json_encode($data));
-
-                if(isset($data['downloadurl']) && $data['downloadurl']!=''){
-                    header("location: ".$data['downloadurl']);
-                    die();
-                }
-
-                header("location: ".$_SERVER['HTTP_REFERER']."#nojs_popup|ckid:".$key);
-                die();
-            }
-
-            wp_send_json($data);
-            die();
-        }
-
-    }
-
-
-    function createTerm()
-    {
-        if(wp_verify_nonce(wpdm_query_var('__nonce'), NONCE_KEY)) {
-            $_term = wp_create_term(wpdm_query_var('term'), wpdm_query_var('taxonomy'));
-            $_term_id = wpdm_valueof($_term, 'term_id');
-            if($_term_id) {
-                $term = get_term($_term_id);
-                wp_send_json(['success' => true, 'term' => $term, 'html' => '<li class="wpdm-tag"><label><input type="checkbox" name="taxonomy['.wpdm_query_var('taxonomy').'][]" class="wpdmtag" value="'.$term->term_id.'"> <span class="tagname">'.$term->name.'</span></label></li>']);
-            } else {
-                wp_send_json(['success' => false, 'term' => $_term]);
-            }
-        } else {
-          wp_send_json(['success' => false]);
-        }
-    }
-
 
     function shopLogo($args, $id)
     {
@@ -835,7 +663,7 @@ class Apply
             .w3eden .wpdm_cart thead th,
             .w3eden #csp .list-group-item,
             .w3eden .modal-title {
-                font-family: <?php echo $font; ?> -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+                font-family: <?php echo __::sanitize_var($font); ?> -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
                 text-transform: uppercase;
                 font-weight: 700;
             }
@@ -849,7 +677,7 @@ class Apply
         <style>
         <?php
         echo '/* WPDM Link Template Styles */';
-        echo $css;
+        echo wpdm_escs($css);
         ?>
         </style>
         <?php
@@ -882,40 +710,40 @@ class Apply
         <style>
 
             :root {
-                --color-primary: <?php echo $primary; ?>;
+                --color-primary: <?php echo esc_attr($primary); ?>;
                 --color-primary-rgb: <?php echo wpdm_hex2rgb($primary); ?>;
                 --color-primary-hover: <?php echo isset($uicolors['primary'])?$uicolors['primary_hover']:'#4a8eff'; ?>;
                 --color-primary-active: <?php echo isset($uicolors['primary'])?$uicolors['primary_active']:'#4a8eff'; ?>;
-                --color-secondary: <?php echo $secondary; ?>;
+                --color-secondary: <?php echo esc_attr($secondary); ?>;
                 --color-secondary-rgb: <?php echo wpdm_hex2rgb($secondary); ?>;
-                --color-secondary-hover: <?php echo isset($uicolors['secondary'])?$uicolors['secondary_hover']:'#4a8eff'; ?>;
-                --color-secondary-active: <?php echo isset($uicolors['secondary'])?$uicolors['secondary_active']:'#4a8eff'; ?>;
+                --color-secondary-hover: <?php echo isset($uicolors['secondary'])?esc_attr($uicolors['secondary_hover']):'#4a8eff'; ?>;
+                --color-secondary-active: <?php echo isset($uicolors['secondary'])?esc_attr($uicolors['secondary_active']):'#4a8eff'; ?>;
                 --color-success: <?php echo $success; ?>;
                 --color-success-rgb: <?php echo wpdm_hex2rgb($success); ?>;
-                --color-success-hover: <?php echo isset($uicolors['success_hover'])?$uicolors['success_hover']:'#4a8eff'; ?>;
-                --color-success-active: <?php echo isset($uicolors['success_active'])?$uicolors['success_active']:'#4a8eff'; ?>;
-                --color-info: <?php echo $info; ?>;
+                --color-success-hover: <?php echo isset($uicolors['success_hover'])?esc_attr($uicolors['success_hover']):'#4a8eff'; ?>;
+                --color-success-active: <?php echo isset($uicolors['success_active'])?esc_attr($uicolors['success_active']):'#4a8eff'; ?>;
+                --color-info: <?php echo esc_attr($info); ?>;
                 --color-info-rgb: <?php echo wpdm_hex2rgb($info); ?>;
-                --color-info-hover: <?php echo isset($uicolors['info_hover'])?$uicolors['info_hover']:'#2CA8FF'; ?>;
-                --color-info-active: <?php echo isset($uicolors['info_active'])?$uicolors['info_active']:'#2CA8FF'; ?>;
-                --color-warning: <?php echo $warning; ?>;
+                --color-info-hover: <?php echo isset($uicolors['info_hover'])?esc_attr($uicolors['info_hover']):'#2CA8FF'; ?>;
+                --color-info-active: <?php echo isset($uicolors['info_active'])?esc_attr($uicolors['info_active']):'#2CA8FF'; ?>;
+                --color-warning: <?php echo esc_attr($warning); ?>;
                 --color-warning-rgb: <?php echo wpdm_hex2rgb($warning); ?>;
-                --color-warning-hover: <?php echo isset($uicolors['warning_hover'])?$uicolors['warning_hover']:'orange'; ?>;
-                --color-warning-active: <?php echo isset($uicolors['warning_active'])?$uicolors['warning_active']:'orange'; ?>;
+                --color-warning-hover: <?php echo isset($uicolors['warning_hover'])?esc_attr($uicolors['warning_hover']):'orange'; ?>;
+                --color-warning-active: <?php echo isset($uicolors['warning_active'])?esc_attr($uicolors['warning_active']):'orange'; ?>;
                 --color-danger: <?php echo $danger; ?>;
                 --color-danger-rgb: <?php echo wpdm_hex2rgb($danger); ?>;
-                --color-danger-hover: <?php echo isset($uicolors['danger_hover'])?$uicolors['danger_hover']:'#ff5062'; ?>;
-                --color-danger-active: <?php echo isset($uicolors['danger_active'])?$uicolors['danger_active']:'#ff5062'; ?>;
-                --color-green: <?php echo isset($uicolors['green'])?$uicolors['green']:'#30b570'; ?>;
-                --color-blue: <?php echo isset($uicolors['blue'])?$uicolors['blue']:'#0073ff'; ?>;
-                --color-purple: <?php echo isset($uicolors['purple'])?$uicolors['purple']:'#8557D3'; ?>;
-                --color-red: <?php echo isset($uicolors['red'])?$uicolors['red']:'#ff5062'; ?>;
+                --color-danger-hover: <?php echo isset($uicolors['danger_hover'])?esc_attr($uicolors['danger_hover']):'#ff5062'; ?>;
+                --color-danger-active: <?php echo isset($uicolors['danger_active'])?esc_attr($uicolors['danger_active']):'#ff5062'; ?>;
+                --color-green: <?php echo isset($uicolors['green'])?esc_attr($uicolors['green']):'#30b570'; ?>;
+                --color-blue: <?php echo isset($uicolors['blue'])?esc_attr($uicolors['blue']):'#0073ff'; ?>;
+                --color-purple: <?php echo isset($uicolors['purple'])?esc_attr($uicolors['purple']):'#8557D3'; ?>;
+                --color-red: <?php echo isset($uicolors['red'])?esc_attr($uicolors['red']):'#ff5062'; ?>;
                 --color-muted: rgba(69, 89, 122, 0.6);
-                --wpdm-font: <?php echo $font; ?> -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+                --wpdm-font: <?php echo __::sanitize_var($font); ?> -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             }
 
             .wpdm-download-link<?php echo $class; ?> {
-                border-radius: <?php echo (isset($ui_button['borderradius'])?$ui_button['borderradius']:4); ?>px;
+                border-radius: <?php echo (isset($ui_button['borderradius'])?esc_attr($ui_button['borderradius']):4); ?>px;
             }
 
 

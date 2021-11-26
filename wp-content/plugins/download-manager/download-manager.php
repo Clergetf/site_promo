@@ -5,7 +5,7 @@ Plugin URI: https://www.wpdownloadmanager.com/purchases/
 Description: Manage, Protect and Track file downloads, and sell digital products from your WordPress site. A complete digital asset management solution.
 Author: W3 Eden, Inc.
 Author URI: https://www.wpdownloadmanager.com/
-Version: 3.2.21
+Version: 3.2.24
 Text Domain: download-manager
 Domain Path: /languages
 */
@@ -39,7 +39,7 @@ use WPDM\Widgets\WidgetController;
 
 global $WPDM;
 
-define('WPDM_VERSION','3.2.21');
+define('WPDM_VERSION','3.2.24');
 
 define('WPDM_TEXT_DOMAIN','download-manager');
 
@@ -72,9 +72,6 @@ if(!defined('WPDM_MENU_ACCESS_CAP'))
 define('WPDM_BASE_DIR',dirname(__FILE__).'/');
 define('WPDM_SRC_DIR',dirname(__FILE__).'/src/');
 
-/**
- * Plugin base url
- */
 define('WPDM_BASE_URL',plugins_url('/download-manager/'));
 
 if(!defined('UPLOAD_DIR'))
@@ -447,25 +444,6 @@ final class WordPressDownloadManager{
 
         if (is_array($wpdmss) && !in_array('wpdm-font-awesome', $wpdmss)) {
             wp_enqueue_style('wpdm-font-awesome');
-        }
-
-
-        if(is_object($post) && ( wpdm_query_var('adb_page') != '' || get_option('__wpdm_author_dashboard') == $post->ID || has_shortcode($post->post_content,'wpdm_frontend') || has_shortcode($post->post_content,'wpdm_package_form') || has_shortcode($post->post_content,'wpdm_user_dashboard') || (function_exists('has_block') && has_block('download-manager/dashboard')) || has_shortcode($post->post_content,'wpdm-file-browser') ) ){
-            wp_enqueue_script('jquery-validate');
-            wp_enqueue_script('jquery-ui');
-            wp_enqueue_script('jquery-ui-datepicker');
-            wp_enqueue_script('thickbox');
-            wp_enqueue_style('thickbox');
-            wp_enqueue_script('media-upload');
-            wp_enqueue_script('jquery-ui-datepicker');
-            wp_enqueue_script('jquery-ui-slider');
-            wp_enqueue_script('jquery-ui-sortable');
-            wp_enqueue_script('jquery-ui-timepicker', WPDM_BASE_URL.'assets/js/jquery-ui-timepicker-addon.js',array('jquery','jquery-ui-core','jquery-ui-datepicker','jquery-ui-slider') );
-            wp_enqueue_media();
-            wp_enqueue_style('jqui-css', plugins_url('/download-manager/assets/jqui/theme/jquery-ui.css'));
-
-            wp_enqueue_script('chosen', plugins_url('/download-manager/assets/js/chosen.jquery.min.js'), array('jquery'));
-            wp_enqueue_style('chosen-css', plugins_url('/download-manager/assets/css/chosen.css'), 999999);
         }
 
 

@@ -473,7 +473,7 @@
     var ifiles = [];
     jQuery(function($) {
 
-        $('select').chosen({});
+        $('select').select2({});
 
         $('body').on('click', '.slctdir', function(){
             WPDM.blockUI('#importarea');
